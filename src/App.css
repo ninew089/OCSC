@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+body {
+  background-color: #ffeba7;
+}
+.center {
+  box-align: center;
+}
+.box {
+  position: inherit;
+  position: absolute;
+  top: 160px;
+  padding-bottom: 4em;
+  background: #faf9f7;
+  width: fit-content;
+  border-radius: 10px 10px 10px 10px;
+}
+h2 {
+  text-align: center;
+  font-size: larger;
+}
+.box {
+  position: flex;
+  top: 160px;
+  left: 30%;
+  padding-bottom: 4em;
+  background: #faf9f7;
+  border-radius: 10px 10px 10px 10px;
+  position: inherit;
+}
+.strong {
+  font-family: "Prompt", sans-serif;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+}
+@media only screen and (min-width: 1440px) {
+  /* styles for browsers larger than 1440px; */
+}
+@media only screen and (min-width: 1280px) {
+  /* for sumo sized (labtop) screens */
+}
+@media only screen and (min-width: 2000px) {
+  /* for sumo sized (mac) screens */
+}

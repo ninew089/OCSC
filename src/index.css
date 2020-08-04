@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+body {
+  margin: 0;
+  font-family: "Prompt", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Prompt", sans-serif;
+}
+
+code {
+  font-family: "Prompt", sans-serif;
+}
+
+h2 {
+  font-size: initial;
+  font-family: "Prompt", sans-serif;
+}
+p {
+  font-family: "Prompt", sans-serif;
+}
+h3 {
+  font-family: "Prompt", sans-serif;
+}
+.font {
+  font-family: "Prompt", sans-serif;
+}
+h4 {
+  font-family: "Prompt", sans-serif;
+}
+h5 {
+  font-family: "Prompt", sans-serif;
+}

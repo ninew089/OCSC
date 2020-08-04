@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+.box-text {
+  align-content: center;
+  position: relative;
+  margin: 4px;
+}
+strong {
+  font-size: 1 em;
+  color: #007eff;
+}
+.box-title {
+  margin: 1em;
+  background: #ffffff;
+  border: 1px solid #007eff;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.label1 {
+  box-align: left;
+}
+.label2 {
+  box-align: right;
+}
+p {
+  font-family: "Prompt", sans-serif;
+}
+.p1 {
+  font-family: "Prompt", sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+}

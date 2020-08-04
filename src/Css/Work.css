@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&display=swap");
+
+h1 {
+  font-family: "Prompt", sans-serif;
+  line-height: 0.8;
+}
+h2 {
+  font-family: "Prompt", sans-serif;
+  font-size: larger;
+  line-height: 0.8;
+}
+h3 {
+  text-align: start;
+  font-family: "Prompt", sans-serif;
+}
+.title {
+  text-align: center;
+  font-family: "Prompt", sans-serif;
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+h4 {
+  text-align: initial;
+  font-family: "Prompt", sans-serif;
+}
+
+h5 {
+  font-family: "Prompt", sans-serif;
+  display: inline;
+  text-align: end;
+  line-height: 0.8;
+}
+body {
+  font-family: "Prompt", sans-serif;
+}
+.left {
+  margin-left: auto;
+}
+.cen {
+  margin: auto;
+}
+.leftfloat {
+  float: left;
+  font-size: 0.941em;
+}
+.rightfloat {
+  float: right;
+  font-size: 0.941em;
+}
+.justify {
+  justify-content: center;
+}
+.radar {
+  font-family: "Kanit", sans-serif;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 4px;
+}
+.bg {
+  background-color: #ffffff;
+}
+@media all {
+  .pagebreak {
+    display: none;
+  }
+}
+@media print {
+  .pagebreak {
+    display: block;
+    page-break-before: always;
+  }
+}
+.info {
+  padding: 10px;
+  font-family: "Prompt", sans-serif;
+  text-align: start;
+  background-color: #ffffff;
+}
+.strong1 {
+  font-weight: bold;
+  display: -webkit-inline-box;
+}
+#t2 {
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+tr {
+  page-break-before: avoid;
+}
+tr.pagebreak {
+  display: block;
+  page-break-before: always;
+}
+.button {
+  font-family: "Prompt", sans-serif;
+}
