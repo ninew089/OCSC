@@ -77,7 +77,12 @@ body {
     display: block;
     page-break-before: always;
   }
+
+  @page {
+    margin: 27mm 16mm 27mm 16mm;
+  }
 }
+
 .info {
   padding: 10px;
   font-family: "Prompt", sans-serif;
@@ -102,4 +107,36 @@ tr.pagebreak {
 }
 .button {
   font-family: "Prompt", sans-serif;
+}
+.strong2 {
+  font-weight: bold;
+  display: -webkit-inline-box;
+  color: #d65353;
+}
+.legend {
+  width: 20px;
+  height: 40px;
+}
+td {
+  text-align: start;
+  font-size: "12px";
+}
+.logo {
+  margin-left: auto;
+  align-self: center;
+}
+.table {
+  font-size: "12px";
+}
+
+@page Section1 {
+  size: 8.27in 11.69in;
+  margin: 0.5in 0.5in 0.5in 1.6in;
+  mso-header-margin: 0.5in;
+  mso-footer-margin: 0.5in;
+  mso-paper-source: 0;
+}
+
+div.Section1 {
+  page: Section1;
 }

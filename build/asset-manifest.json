@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/aptitude-test/static/css/main.61eb79ef.chunk.css",
-    "main.js": "/aptitude-test/static/js/main.e91d41a5.chunk.js",
-    "main.js.map": "/aptitude-test/static/js/main.e91d41a5.chunk.js.map",
+    "main.css": "/aptitude-test/static/css/main.3d641aa1.chunk.css",
+    "main.js": "/aptitude-test/static/js/main.2e8e34f2.chunk.js",
+    "main.js.map": "/aptitude-test/static/js/main.2e8e34f2.chunk.js.map",
     "runtime-main.js": "/aptitude-test/static/js/runtime-main.6af16009.js",
     "runtime-main.js.map": "/aptitude-test/static/js/runtime-main.6af16009.js.map",
-    "static/js/2.181f1c13.chunk.js": "/aptitude-test/static/js/2.181f1c13.chunk.js",
-    "static/js/2.181f1c13.chunk.js.map": "/aptitude-test/static/js/2.181f1c13.chunk.js.map",
+    "static/js/2.e45085b4.chunk.js": "/aptitude-test/static/js/2.e45085b4.chunk.js",
+    "static/js/2.e45085b4.chunk.js.map": "/aptitude-test/static/js/2.e45085b4.chunk.js.map",
     "index.html": "/aptitude-test/index.html",
-    "precache-manifest.65f19f8eaf5d08c27792f1b962beef7e.js": "/aptitude-test/precache-manifest.65f19f8eaf5d08c27792f1b962beef7e.js",
+    "precache-manifest.04cc27423c4d37ca47775e2daa264b9e.js": "/aptitude-test/precache-manifest.04cc27423c4d37ca47775e2daa264b9e.js",
     "service-worker.js": "/aptitude-test/service-worker.js",
-    "static/css/main.61eb79ef.chunk.css.map": "/aptitude-test/static/css/main.61eb79ef.chunk.css.map",
-    "static/js/2.181f1c13.chunk.js.LICENSE.txt": "/aptitude-test/static/js/2.181f1c13.chunk.js.LICENSE.txt",
+    "static/css/main.3d641aa1.chunk.css.map": "/aptitude-test/static/css/main.3d641aa1.chunk.css.map",
+    "static/js/2.e45085b4.chunk.js.LICENSE.txt": "/aptitude-test/static/js/2.e45085b4.chunk.js.LICENSE.txt",
     "static/media/001-02.png": "/aptitude-test/static/media/001-02.11408509.png",
+    "static/media/OCSC-banner.png": "/aptitude-test/static/media/OCSC-banner.d23a216b.png",
+    "static/media/doe.png": "/aptitude-test/static/media/doe.33c589c3.png",
     "static/media/ocsc-logo_7.png": "/aptitude-test/static/media/ocsc-logo_7.e23b2c30.png",
     "static/media/transfer-to-ocsc.png": "/aptitude-test/static/media/transfer-to-ocsc.c5081be2.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6af16009.js",
-    "static/js/2.181f1c13.chunk.js",
-    "static/css/main.61eb79ef.chunk.css",
-    "static/js/main.e91d41a5.chunk.js"
+    "static/js/2.e45085b4.chunk.js",
+    "static/css/main.3d641aa1.chunk.css",
+    "static/js/main.2e8e34f2.chunk.js"
   ]
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import logo from "./logo/ocsc-logo_7.png";
+import logo from "./logo/OCSC-banner.png";
+import logos from "./logo/doe.png";
 import { makeStyles } from "@material-ui/core/styles";
-
+import "../../Css/Work.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,9 +27,18 @@ export default function ProminentAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed">
+      <AppBar position="fixed" style={{ background: "ghostwhite" }}>
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="logo" className={classes.logo} />
+          <img src={logo} alt="logo" className={classes.logo} width="350px" />
+          <div className="logo">
+            <img
+              src={logos}
+              alt="logos"
+              className={classes.logo}
+              width="350px"
+              marginleft="auto"
+            />
+          </div>
         </Toolbar>
       </AppBar>
     </div>

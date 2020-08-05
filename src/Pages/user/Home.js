@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "../../component/user/Navbar";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -11,6 +12,8 @@ import "../../App.css";
 import Link from "@material-ui/core/Link";
 import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
 import logo from "../../pic/transfer-to-ocsc.png";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -21,6 +24,22 @@ export default function Home() {
       fontFamily: '"Prompt", serif',
     },
   });
+  const GreenCheckbox = withStyles({
+    root: {
+      color: green[400],
+      "&$checked": {
+        color: green[600],
+      },
+    },
+    checked: {},
+  })((props) => <Checkbox color="default" {...props} />);
+  const [state, setState] = React.useState({
+    checkedG: false,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   return (
     <div className="container" theme={theme}>
@@ -87,12 +106,28 @@ export default function Home() {
                                 ท่านต้องตอบแบบประเมินฯ&nbsp;ให้ครบทุกข้อใช้เวลาทั้งหมดประมาณ
                                 15 นาที หากท่านต้องการพิมพ์ผลการประเมินฯ
                                 โปรดเตรียมเครื่องพิมพ์ให้เรียบร้อยก่อนเริ่มทําแบบประเมินฯ
-                                หรือใช้เว็บเบราวเซอร์ที่สามารถพิมพ์เป็นเอกสาร
+                                หรือเป็นเว็บเบราวเซอร์ที่สามารถพิมพ์เป็นเอกสาร
                                 &nbsp;PDF &nbsp;ได้
                               </strong>
                             </h4>
                           </Alert>
                         </Box>
+                        <FormControlLabel
+                          value="start"
+                          control={
+                            <GreenCheckbox
+                              checked={state.checkedG}
+                              onChange={handleChange}
+                              name="checkedG"
+                            />
+                          }
+                          label={
+                            <h5>
+                              ข้าพเจ้า นาย/นาง ........... ยินยอมให้ข้อมูล
+                            </h5>
+                          }
+                          labelPlacement="end"
+                        />
                       </Grid>
 
                       <Grid
@@ -103,7 +138,19 @@ export default function Home() {
                         spacing={4}
                       >
                         <Box p={2} spacing={2}>
-                          <Link href={`${process.env.PUBLIC_URL}/main`}>
+                          {state.checkedG ? (
+                            <Link href={`${process.env.PUBLIC_URL}/main`}>
+                              <Button
+                                variant="contained"
+                                size="small"
+                                color="primary"
+                                className={classes.margin}
+                              >
+                                <PlayArrowRoundedIcon />
+                                <h3>เริ่มทำแบบประเมิน</h3>
+                              </Button>
+                            </Link>
+                          ) : (
                             <Button
                               variant="contained"
                               size="small"
@@ -113,7 +160,7 @@ export default function Home() {
                               <PlayArrowRoundedIcon />
                               <h3>เริ่มทำแบบประเมิน</h3>
                             </Button>
-                          </Link>
+                          )}
                         </Box>
                       </Grid>
                     </div>

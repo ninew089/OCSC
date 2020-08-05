@@ -89,7 +89,6 @@ export default function Information({
                   name="title"
                   label="คำนำหน้า"
                   margin="normal"
-                  required
                   fullWidth
                   className={classes.root}
                   variant="filled"
@@ -105,7 +104,6 @@ export default function Information({
                     name="title"
                     label="คำนำหน้า"
                     margin="normal"
-                    required
                     fullWidth
                     className={classes.root}
                     variant="filled"
@@ -134,7 +132,6 @@ export default function Information({
                   label="ชื่อ"
                   margin="normal"
                   variant="filled"
-                  required
                   fullWidth
                   className={classes.root}
                   value={firstName}
@@ -150,7 +147,6 @@ export default function Information({
                     label="ชื่อ"
                     margin="normal"
                     variant="filled"
-                    required
                     fullWidth
                     className={classes.root}
                     value={firstName}
@@ -178,7 +174,6 @@ export default function Information({
                   label="นามสกุล"
                   margin="normal"
                   variant="filled"
-                  required
                   fullWidth
                   className={classes.root}
                   value={lastName}
@@ -194,7 +189,6 @@ export default function Information({
                     label="นามสกุล"
                     margin="normal"
                     variant="filled"
-                    required
                     fullWidth
                     className={classes.root}
                     value={lastName}
@@ -289,7 +283,6 @@ export default function Information({
                     name="age"
                     margin="normal"
                     variant="filled"
-                    required
                     type="number"
                     className={classes.root}
                     value={age}
@@ -306,7 +299,6 @@ export default function Information({
                       name="age"
                       margin="normal"
                       variant="filled"
-                      required
                       type="number"
                       className={classes.root}
                       value={age}
@@ -341,7 +333,6 @@ export default function Information({
                     type="number"
                     variant="filled"
                     className={classes.root}
-                    required
                     value={idCard}
                     onChange={(e) =>
                       setInformation({ ...data, idCard: e.target.value })
@@ -358,7 +349,6 @@ export default function Information({
                       type="number"
                       variant="filled"
                       className={classes.root}
-                      required
                       value={idCard}
                       onChange={(e) =>
                         setInformation({ ...data, idCard: e.target.value })

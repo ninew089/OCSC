@@ -1,4 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
+import domtoimage from "dom-to-image";
+import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -34,6 +39,7 @@ export default function Summary(props) {
   }, []);
 
   const componentRef = useRef();
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
@@ -954,6 +960,7 @@ export default function Summary(props) {
     fetchUsers();
     // eslint-disable-next-line
   }, []);
+
   return (
     <Container maxWidth="sm" alignItems="center">
       <div>
@@ -975,6 +982,7 @@ export default function Summary(props) {
               alignItems="center"
               spacing={1}
               ref={componentRef}
+              id="page"
             >
               <Grid item md={12} xs={12}>
                 {test1.status === 404 ||
@@ -992,134 +1000,53 @@ export default function Summary(props) {
 
                 <Grid>
                   <Container fixed alignItems="center">
-                    <div alignItems="center">
-                      <div className="title">
-                        สรุปผลประเมินความสนใจที่มีต่อหน่วยงานราชการ
-                      </div>{" "}
-                      <h4>
-                        ชื่อ {titles}
-                        {name} นามสกุล {lastName}
-                      </h4>
-                      <h4>เลขบัตรประจำตัวประชาชน {cardID}</h4>
-                    </div>
-                    <div className="radar">
-                      <h3>คะแนนดิบในมิติกิจกรรมการทำงาน</h3>
-                      <ActiveChart active={active} />
-                    </div>
+                    <div>
+                      <div alignItems="center">
+                        <div className="title">
+                          ผลประเมินความสนใจที่มีต่อหน่วยงานราชการ
+                        </div>{" "}
+                        <h4>
+                          ชื่อ {titles}
+                          {name} นามสกุล {lastName}
+                        </h4>
+                      </div>
+                      <div className="radar">
+                        <h3>คะแนนความชอบในมิติกิจกรรมการทำงาน</h3>
+                        <ActiveChart active={active} />
+                      </div>
 
-                    <div className="radar">
-                      <h3>คะแนนดิบในมิติบริบทการทำงาน</h3>
-                      <ContentChart content={content} />
-                    </div>
+                      <div className="radar">
+                        <h3>คะแนนความชอบในมิติบริบทการทำงาน</h3>
+                        <ContentChart content={content} />
+                      </div>
 
-                    <div className="pagebreak"></div>
-                    <div className="radar">
-                      <h3>ผลการประเมินความสนใจของบุคคลที่มีต่อราชการไทย</h3>
-                      <SummaryChart summary1={summary1} />
-                    </div>
-
-                    <div className="pagebreak"></div>
-                    <div className="info">
-                      <h3>การแปลผลคะแนนชุดเครื่องมือแบบประเมิน</h3>
-                      &nbsp;&nbsp;&nbsp;การแปลผลคะแนนชุดเครื่องมือแบบประเมินความชอบ/ความสนใจของบุคคลที่มีต่อราชการไทยสามารถทำได้
-                      2 วิธี ดังนี้
-                      <div>
-                        <div className="strong1">วิธีที่ 1 </div>
-                        &nbsp;การพิจราณาแยกมิติโดยละเอียดตามเกณฑ์
+                      <div className="pagebreak"></div>
+                      <div class="Section1">
+                        <div className="radar">
+                          <h3>ผลการประเมินความสนใจของบุคคลที่มีต่อราชการไทย</h3>
+                          <SummaryChart summary1={summary1} />
+                        </div>
+                        <div className="info">
+                          &nbsp; &nbsp; &nbsp;ผลที่แสดงเป็นเพียงส่วนหนึ่ง
+                          เพื่อประกอบการพิจารณาเพื่อเลือกงานที่สนใจทั้งนี้
+                          ควรศึกษาหาข้อมูลเพิ่มเติมเพื่อประกอบการตัดสินใจ
+                        </div>
                       </div>
-                      &nbsp;&nbsp;&nbsp;ใช้เกณฑ์ในการพิจารณาความเหมาะสมระหว่างรูปแบความชอบ/ความสนใจของผู้สมัครกับลักษณะกลุ่มงาน
-                      &nbsp;(
-                      <i>
-                        r<sub>p</sub>
-                      </i>
-                      ) &nbsp;โดยพิจารณาแยกเป็น 2 มิติ คือ มิติกิจกรรมการทำงาน
-                      และ มิติบริบทการทำงาน
-                      <div>
-                        &nbsp;&nbsp;&nbsp;ผู้แปลผลใช้เกณฑ์การประเมินระดับความเหมาะสม
-                        ซึ่งแบ่งออกเป็น 5 ระดับ ในทั้ง 2 มิติดังนี้
-                      </div>
-                      <table>
-                        <tr>
-                          <td>"ไม่เหมาะสมอย่างมาก"</td>
-                          <td>
-                            ถ้า&nbsp;
-                            <i>
-                              r<sub>p</sub>
-                            </i>
-                            &nbsp; &le;&nbsp;-.30
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>"ไม่เหมาะสม"</td>
-                          <td>
-                            ถ้า&nbsp;-.30 &lt;&nbsp;
-                            <i>
-                              r<sub>p</sub>
-                            </i>
-                            &nbsp; &le;&nbsp;-.30
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>"ไม่ชัดเจน"</td>
-                          <td>
-                            ถ้า&nbsp;-.10&nbsp;&lt;&nbsp;
-                            <i>
-                              r<sub>p</sub>
-                            </i>
-                            &nbsp; &lt;&nbsp;+.10
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>"เหมาะสม"</td>
-                          <td>
-                            ถ้า&nbsp;+.10&nbsp;&le;&nbsp;
-                            <i>
-                              r<sub>p</sub>
-                            </i>
-                            &nbsp; &lt;&nbsp;+.30
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>"ไม่เหมาะสมอย่างมาก"</td>
-                          <td>
-                            ถ้า&nbsp;
-                            <i>
-                              r<sub>p</sub>
-                            </i>
-                            &nbsp;&ge;&nbsp;+.30
-                          </td>
-                        </tr>
-                      </table>
-                      &nbsp;&nbsp;&nbsp;วิธีการแปลผลแบบแรกนี้
-                      เหมาะสมที่จะใช้ในกรณีที่มีข้อมูลอื่นๆ
-                      ของผู้สมัครร่วมด้วยเช่น ความถนัด บุคลิกภาพ
-                      ประสบการณ์การทำงาน ฯลฯ
-                      เพื่อประกอบการพิจารณาที่ต้องใช้เวลาและรายละเอียดรอบคอบ
-                      ในการวางแผนการเข้ารับราชการของผู้สมัครเข้ารับราชการ
-                      <div>
-                        <div className="strong1">วิธีที่ 2</div> การใช้
-                        "คะแนนค่าเฉลี่ยของ 2 มิติ" เพื่อพิจราณาแบบรวดเร็ว
-                      </div>
-                      <div>
-                        &nbsp;&nbsp;&nbsp;การแปลผลแบบนี้จะใช้ค่าเฉลี่ยสัมประสิทธิ์ความสอดคล้องระหว่างรูปแบบความชอบ/ความสนใจของผู้สมัครและลักษณะต้นแบบของการทำงานทั้ง
-                        2 มิติ มาคิดค่าเป็นค่าเฉลี่ย
-                        เพียงค่าเดียวเพื่อให้ได้การแปลผลที่ง่ายและรวดเร็ว
-                      </div>
-                      <div>
-                        &nbsp;&nbsp;&nbsp;ผู้แปลผลพิจารณาค่าเฉลี่ยสัมประสิทธิ์ความสอดคล้องระหว่างรูปแบบความชอบ/ความสนใจของผู้สมัครและลักษณะต้นแบบของการทำงานในแต่ละกลุ่มการทำงาน
-                        โดยกลุ่มงานที่มีค่าเฉลี่ย{" "}
-                        <div className="strong1">สูงที่สุด</div>
-                        &nbsp;
-                        คือกลุ่มงานที่มีความเหมาะสมกับผู้สมัครดังกล่าวมากที่สุด
-                      </div>
+                      <div className="pagebreak"></div>
                     </div>
                   </Container>
                 </Grid>
               </Grid>
             </Grid>
             <Grid container direction="row" spacing={1}>
-              <Grid container spacing={4}>
-                <Grid item xs={5}>
+              <Grid
+                container
+                spacing={4}
+                direction="row"
+                justify="center"
+                alignItems="center"
+              >
+                <Grid item>
                   <Button
                     style={{
                       borderRadius: "120px",
@@ -1136,6 +1063,46 @@ export default function Summary(props) {
                       &nbsp; พิมพ์ผลการประเมิน
                     </div>
                   </Button>
+                  <Button
+                    style={{
+                      borderRadius: "120px",
+                      background: "lightcoral",
+                      height: "40px",
+                      color: "local",
+                    }}
+                    alignItems="left"
+                    onClick={() => {
+                      const input = document.getElementById("page");
+
+                      html2canvas(input).then((canvas) => {
+                        // eslint-disable-next-line
+                        const imgData = canvas.toDataURL("image/png");
+                        const pdf = new jsPDF();
+
+                        if (pdf) {
+                          domtoimage.toPng(input).then((imgData) => {
+                            pdf.addImage(imgData, "PNG", 10, 10, 160, 280);
+
+                            pdf.save("download.pdf");
+                          });
+                        }
+                      });
+                    }}
+                    className={classes.button}
+                  >
+                    <PictureAsPdfIcon style={{ color: "ghostwhite" }} />
+                    <div className="button" style={{ color: "ghostwhite" }}>
+                      &nbsp; บันทึกไฟล์PDF
+                    </div>
+                  </Button>
+
+                  <div>
+                    <center>
+                      <h5>
+                        &nbsp; ถ้าไม่สามารถ save pdf ได้ ขอให้ capture หน้าจอไว้
+                      </h5>
+                    </center>
+                  </div>
                 </Grid>
               </Grid>
             </Grid>

@@ -52,9 +52,6 @@ export default function RadioButtons(props) {
             alignContent="center"
             style={{ padding: " 10px" }}
           >
-            <h3 align="left">
-              &nbsp; {no}.&nbsp;{header}
-            </h3>
             <Grid
               container
               xs={12}
@@ -62,9 +59,13 @@ export default function RadioButtons(props) {
               alignContent="center"
             >
               {dim === 2 ? (
-                ""
+                <h3 align="left">
+                  &nbsp; {no}.&nbsp;{header}
+                </h3>
               ) : (
-                <h4 align="left"> &nbsp;&nbsp;&nbsp;{description}</h4>
+                <h3 align="left">
+                  &nbsp; {no}.&nbsp;{description}
+                </h3>
               )}
             </Grid>
             <Grid container xs={6} justify="flex-start" alignItems="center">
