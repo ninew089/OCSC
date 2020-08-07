@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   toolbar: {
-    minHeight: 128,
+    minHeight: 80,
     alignItems: "flex-start",
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
@@ -27,10 +27,12 @@ export default function ProminentAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{ background: "ghostwhite" }}>
+      <AppBar position="fixed" style={{ background: "primary" }}>
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="logo" className={classes.logo} width="350px" />
-          <div className="logo">
+          <img src={logo} alt="logo" className={classes.logo} width="340px" />
+          <div className="logo" style={{background: "ghostwhite",
+    width: "400px",
+    borderRadius: "300px 80px 80px 300px"}}>
             <img
               src={logos}
               alt="logos"

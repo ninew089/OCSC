@@ -59,10 +59,10 @@ export default function ActivityWork({
                       alignContent="flex-start"
                     >
                       <h3 text-align="initial">คำชี้เเจง :</h3>
-                      <h4>
+                      <h4   style={{fontWeight: "400"}}>
                         ข้อคำถามต่อไปนี้เป็นกิจกรรมที่บุคคลมักต้องเจอในการทำงานตำแหน่ง/หน้าที่ต่างๆ
                         ขอให้ท่านเลือกหมายเลขที่ตรงกับ
-                        ระดับความยาก/ความซับซ้อนของง่าน (job demand)
+                        ระดับความยาก/ความซับซ้อนของงาน (job demand) &nbsp;
                         <div className="strong2">
                           ที่ท่านชอบหรืออยากทำมากที่สุด
                         </div>

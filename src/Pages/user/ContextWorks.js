@@ -59,7 +59,7 @@ export default function ContextWork({
                       alignContent="flex-start"
                     >
                       <h3 text-align="initial">คำชี้เเจง :</h3>
-                      <h4>
+                      <h4 style={{fontWeight: "400"}}>
                         ข้อคำถามต่อไปนี้เป็นบริบทการทำงานของบุคคลมักต้องเจอในการทำงานตำแหน่ง/หน้าที่ต่างๆ
                         ขอให้ท่านเลือกหมายเลขที่ตรงกับ ลักษณะการทำงาน
                         <div className="strong2">

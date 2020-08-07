@@ -33,24 +33,6 @@ const ChartPage = (props) => {
       mean: summary1[3].mean,
     },
     {
-      name: Data1[0].name,
-      active: summary1[0].activity,
-      context: summary1[0].context,
-      mean: summary1[0].mean,
-    },
-    {
-      name: Data1[0].name,
-      active: summary1[0].activity,
-      context: summary1[0].context,
-      mean: summary1[0].mean,
-    },
-    {
-      name: Data1[0].name,
-      active: summary1[0].activity,
-      context: summary1[0].context,
-      mean: summary1[0].mean,
-    },
-    {
       name: Data1[4].name,
       active: summary1[4].activity,
       context: summary1[4].context,
@@ -79,12 +61,6 @@ const ChartPage = (props) => {
       active: summary1[8].activity,
       context: summary1[8].context,
       mean: summary1[8].mean,
-    },
-    {
-      name: Data1[0].name,
-      active: summary1[0].activity,
-      context: summary1[0].context,
-      mean: summary1[0].mean,
     },
     {
       name: Data1[9].name,
@@ -261,6 +237,7 @@ const ChartPage = (props) => {
       },
     ],
   };
+  
 
   return (
     <div className="flex flex-col items-center w-full max-w-md">
@@ -346,14 +323,64 @@ const ChartPage = (props) => {
               {
                 ticks: {
                   stepSize: 0.1,
+                  callback: function(value, index, values) {
+                    if ((value) < -0.3) {
+                      return value;
+                  }
+                    if ((value) === -0.3) {
+                        return value;
+                    }
+                    if ((value) === -0.1) {
+                      return value;
+                  }if ((value) === 0) {
+                    return value;
+                }
+                if ((value) === 0.1) {
+                  return value;
+              }if ((value) === 0.3) {
+                return value;
+            } if ((value) > 0.3) {
+              return value;
+          }
+          }
                 },
                 gridLines: {
                   lineWidth: 3,
+                 
                   zeroLineColor: "#FFF",
                   zeroLineWidth: 2,
                 },
-              },
+              },{  gridLines: {
+                drawBorder:false,
+                drawTicks:false,
+                offsetGridLines:true,
+                drawOnChartArea: false, // only want the grid lines for one axis to show up
+              }, ticks: {
+                autoSkip: false,
+                maxRotation: 0,
+                minRotation: 0
+              },afterTickToLabelConversion: function(data){
+
+            
+                var xLabels = data.ticks;
+            
+                xLabels.forEach(function (labels, i) {
+               
+                    if ( i===0 ){
+                     return xLabels[i] = "ไม่เหมาะสม";
+
+                    }
+                    if (i  === 17){
+                      return xLabels[i] = "เหมาะสม";
+
+                  }else{
+                   return xLabels[i] = "";
+                  }
+                
+                });
+            } },
             ],
+            
           },
           legend: {
             display: false,
@@ -361,25 +388,7 @@ const ChartPage = (props) => {
           },
         }}
       />
-      <left
-        style={{
-          fontWeight: " 400",
-          fontSize: "0.7em",
-          color: "darkslategrey",
-        }}
-      >
-        ไม่เหมาะสม
-      </left>
-      <right
-        style={{
-          float: "right",
-          fontWeight: " 400",
-          fontSize: "0.7em",
-          color: "darkslategrey",
-        }}
-      >
-        เหมาะสม
-      </right>
+ 
     </div>
   );
 };

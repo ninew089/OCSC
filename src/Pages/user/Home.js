@@ -122,8 +122,8 @@ export default function Home() {
                             />
                           }
                           label={
-                            <h5>
-                              ข้าพเจ้า นาย/นาง ........... ยินยอมให้ข้อมูล
+                            <h5 style={{fontWeight:"900"}}>
+                              ข้าพเจ้า นาย/นาง/นางสาว ........... ยินยอมให้ข้อมูล
                             </h5>
                           }
                           labelPlacement="end"

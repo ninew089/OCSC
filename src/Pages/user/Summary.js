@@ -33,7 +33,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Summary(props) {
   const classes = useStyles();
-
+  const loadFont = (url) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let css = xhr.responseText;
+        css = css.replace(/}/g, 'font-display: swap; }');
+  
+        const head = document.getElementsByTagName('head')[0];
+        const style = document.createElement('style');
+        style.appendChild(document.createTextNode(css));
+        head.appendChild(style);
+      }
+    };
+    xhr.send();
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -981,7 +996,7 @@ export default function Summary(props) {
               justify="center"
               alignItems="center"
               spacing={1}
-              ref={componentRef}
+          
               id="page"
             >
               <Grid item md={12} xs={12}>
@@ -999,7 +1014,7 @@ export default function Summary(props) {
                 )}
 
                 <Grid>
-                  <Container fixed alignItems="center">
+                  <Container fixed alignItems="center"     ref={componentRef}>
                     <div>
                       <div alignItems="center">
                         <div className="title">
@@ -1021,7 +1036,7 @@ export default function Summary(props) {
                       </div>
 
                       <div className="pagebreak"></div>
-                      <div class="Section1">
+                     
                         <div className="radar">
                           <h3>ผลการประเมินความสนใจของบุคคลที่มีต่อราชการไทย</h3>
                           <SummaryChart summary1={summary1} />
@@ -1031,7 +1046,7 @@ export default function Summary(props) {
                           เพื่อประกอบการพิจารณาเพื่อเลือกงานที่สนใจทั้งนี้
                           ควรศึกษาหาข้อมูลเพิ่มเติมเพื่อประกอบการตัดสินใจ
                         </div>
-                      </div>
+                 
                       <div className="pagebreak"></div>
                     </div>
                   </Container>
@@ -1039,6 +1054,8 @@ export default function Summary(props) {
               </Grid>
             </Grid>
             <Grid container direction="row" spacing={1}>
+              
+              {loadFont('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap')}
               <Grid
                 container
                 spacing={4}
@@ -1050,7 +1067,7 @@ export default function Summary(props) {
                   <Button
                     style={{
                       borderRadius: "120px",
-                      background: "#ccc7c7",
+                      background: "cornflowerblue",
                       height: "40px",
                       color: "local",
                     }}
@@ -1078,12 +1095,24 @@ export default function Summary(props) {
                         // eslint-disable-next-line
                         const imgData = canvas.toDataURL("image/png");
                         const pdf = new jsPDF();
-
+                        const scale = 3;
+                        const style = {
+                          transform: "scale(" + scale + ")",
+                          transformOrigin: "top left",
+                          width: input.offsetWidth + "px",
+                          height: input.offsetHeight + "px",
+                        };
+                        const param = {
+                          height: input.offsetHeight * scale,
+                          width: input.offsetWidth * scale,
+                          quality: 1,
+                          style,
+                        };
                         if (pdf) {
-                          domtoimage.toPng(input).then((imgData) => {
-                            pdf.addImage(imgData, "PNG", 10, 10, 160, 280);
+                          domtoimage.toPng(input, param).then((imgData) => {
+                            pdf.addImage(imgData, "PNG", 35, 10, 140, 270);
 
-                            pdf.save("download.pdf");
+                            pdf.save("ผลการประเมิน.pdf");
                           });
                         }
                       });

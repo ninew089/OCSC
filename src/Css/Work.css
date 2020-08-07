@@ -30,6 +30,7 @@ h3 {
 h4 {
   text-align: initial;
   font-family: "Prompt", sans-serif;
+  font-weight: 400;
 }
 
 h5 {
@@ -37,6 +38,7 @@ h5 {
   display: inline;
   text-align: end;
   line-height: 0.8;
+  font-weight: 400;
 }
 body {
   font-family: "Prompt", sans-serif;
@@ -79,7 +81,7 @@ body {
   }
 
   @page {
-    margin: 27mm 16mm 27mm 16mm;
+    margin: 0.5in 0.5in 0.5in 2.6in;
   }
 }
 
@@ -101,10 +103,7 @@ body {
 tr {
   page-break-before: avoid;
 }
-tr.pagebreak {
-  display: block;
-  page-break-before: always;
-}
+
 .button {
   font-family: "Prompt", sans-serif;
 }
@@ -112,31 +111,30 @@ tr.pagebreak {
   font-weight: bold;
   display: -webkit-inline-box;
   color: #d65353;
+  font-weight: 900;
 }
 .legend {
   width: 20px;
   height: 40px;
 }
 td {
+  font-family: "Prompt", sans-serif;
   text-align: start;
   font-size: "12px";
 }
-.logo {
-  margin-left: auto;
-  align-self: center;
-}
+
 .table {
   font-size: "12px";
 }
 
-@page Section1 {
-  size: 8.27in 11.69in;
-  margin: 0.5in 0.5in 0.5in 1.6in;
-  mso-header-margin: 0.5in;
-  mso-footer-margin: 0.5in;
-  mso-paper-source: 0;
-}
 
-div.Section1 {
-  page: Section1;
+.logo {
+  margin-left: auto;
+  align-self: center;
+  text-align-last: center;
+}
+@media screen and (min-device-width: 360px) and (max-width: 420px) {
+  .logo {
+    display: none;
+  }
 }
