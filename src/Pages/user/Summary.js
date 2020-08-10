@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
+import DescriptionIcon from '@material-ui/icons/Description'
 import { saveAs } from 'file-saver'
 import domtoimage from 'dom-to-image'
 import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
@@ -1110,7 +1111,7 @@ export default function Summary(props) {
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
                             let link = document.createElement('a')
-                            link.download = 'image.png'
+                            link.download = 'ผลประเมิน.png'
                             link.href = imgData
                           })
                         }
@@ -1135,11 +1136,10 @@ export default function Summary(props) {
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
                             let link = document.createElement('a')
-                            link.download = 'image.png'
+                            link.download = 'iผลประเมิน.png'
                             link.href = imgData
 
                             // To save manually somewhere in file explorer
-                            window.saveAs(imgData, 'image.png')
                           })
                         }
                       })
@@ -1162,28 +1162,49 @@ export default function Summary(props) {
                         }
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
-                            let link = document.createElement('a')
-                            link.download = 'image.png'
-                            link.href = imgData
-                            link.click()
-                            // To save manually somewhere in file explorer
-                            window.saveAs(imgData, 'image.png')
+                            if (/iPad/i.test(navigator.userAgent)) {
+                              domtoimage.toPng(input, param).then((imgData) => {
+                                setTimeout(function () {
+                                  pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
+                                  window.open(pdf.output('bloburl'), '_blank')
+                                  pdf.save('ผลการประเมิน.pdf')
+                                }, 950)
+                              })
+                            }
+                            if (/Chrome/i.test(navigator.userAgent)) {
+                              domtoimage.toPng(input, param).then((imgData) => {
+                                setTimeout(function () {
+                                  pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
+                                  window.open(pdf.output('bloburl'), '_blank')
+                                  pdf.save('ผลการประเมิน.pdf')
+                                }, 950)
+                              })
+                            } else {
+                              setTimeout(function () {
+                                let link = document.createElement('a')
+                                link.download = 'ผลประเมิน.png'
+                                link.href = imgData
+                                link.click()
+                                window.saveAs(imgData, 'ผลประเมิน.png')
+                              }, 6000)
+                            }
                           })
                         }
                       })
                     }}
                     className={classes.button}
                   >
-                    <PictureAsPdfIcon style={{ color: 'ghostwhite' }} />
+                    <DescriptionIcon style={{ color: 'ghostwhite' }} />
                     <div className="button" style={{ color: 'ghostwhite' }}>
-                      &nbsp; บันทึกไฟล์PDF
+                      &nbsp; บันทึกไฟล์
                     </div>
                   </Button>
 
                   <div>
                     <center>
                       <h5>
-                        &nbsp; ถ้าไม่สามารถ save pdf ได้ ขอให้ capture หน้าจอไว้
+                        &nbsp; ถ้าไม่สามารถ บันทึกไฟล์ ได้ ขอให้ capture
+                        หน้าจอไว้
                       </h5>
                     </center>
                   </div>
