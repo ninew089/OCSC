@@ -1,55 +1,55 @@
-import React, { Fragment } from "react";
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
-import Radio from "@material-ui/core/Radio";
-import RadioGroup from "@material-ui/core/RadioGroup";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormHelperText from "@material-ui/core/FormHelperText";
+import React, { Fragment } from 'react'
+import Grid from '@material-ui/core/Grid'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import FormControl from '@material-ui/core/FormControl'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormHelperText from '@material-ui/core/FormHelperText'
 
-import "../../Css/Information.css";
+import '../../Css/Information.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& input": {
-      backgroundColor: "#F5F5F5",
-      fontFamily: "Prompt",
+    '& input': {
+      backgroundColor: '#F5F5F5',
+      fontFamily: 'Prompt',
     },
-    "& label": {
-      fontFamily: "Prompt",
+    '& label': {
+      fontFamily: 'Prompt',
     },
   },
   formControl: {
-    alignContent: "left",
+    alignContent: 'left',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
-    fontFamily: "Prompt",
-    "& legend": {
-      fontFamily: "Prompt",
+    fontFamily: 'Prompt',
+    '& legend': {
+      fontFamily: 'Prompt',
     },
   },
   TextFieldControl: {
     marginLeft: theme.spacing(1),
-    fontFamily: "Prompt",
+    fontFamily: 'Prompt',
   },
   formControlTitle: {
     margin: theme.spacing(1),
     minWidth: 140,
-    fontFamily: "Prompt",
+    fontFamily: 'Prompt',
   },
   formGender: {
-    fontFamily: "Prompt",
-    "& legend": {
-      fontFamily: "Prompt",
+    fontFamily: 'Prompt',
+    '& legend': {
+      fontFamily: 'Prompt',
     },
-    "& label": {
-      fontFamily: "Prompt",
+    '& label': {
+      fontFamily: 'Prompt',
     },
   },
-}));
+}))
 
 export default function Information({
   data,
@@ -58,9 +58,9 @@ export default function Information({
   error,
   setError,
 }) {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const { firstName, lastName, age, idCard, title, gender } = data;
+  const { firstName, lastName, age, idCard, title, gender } = data
 
   return (
     <Fragment>
@@ -160,7 +160,7 @@ export default function Information({
                     error
                     className={classes.formGender}
                   >
-                    กรอกชื่อจริง
+                    กรอกชื่อ
                   </FormHelperText>
                 </div>
               )}
@@ -238,7 +238,7 @@ export default function Information({
                       name="gender1"
                       value={gender}
                       onChange={(e) => {
-                        setInformation({ ...data, gender: e.target.value });
+                        setInformation({ ...data, gender: e.target.value })
                       }}
                     >
                       <FormControlLabel
@@ -256,7 +256,7 @@ export default function Information({
                     </RadioGroup>
                     {error.genderError === undefined ||
                     error.firstError === true ? (
-                      ""
+                      ''
                     ) : (
                       <FormHelperText
                         id="component-error-text"
@@ -370,5 +370,5 @@ export default function Information({
         </div>
       </Grid>
     </Fragment>
-  );
+  )
 }

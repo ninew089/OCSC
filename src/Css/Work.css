@@ -1,23 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital@1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;500&display=swap');
 
 h1 {
-  font-family: "Prompt", sans-serif;
-  line-height: 0.8;
+  font-family: 'Prompt', sans-serif;
 }
 h2 {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-size: larger;
-  line-height: 0.8;
 }
 h3 {
   text-align: start;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 .title {
   text-align: center;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   display: block;
   font-size: 1.17em;
   margin-block-start: 1em;
@@ -29,19 +27,18 @@ h3 {
 
 h4 {
   text-align: initial;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   font-weight: 400;
 }
 
 h5 {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   display: inline;
   text-align: end;
-  line-height: 0.8;
   font-weight: 400;
 }
 body {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 .left {
   margin-left: auto;
@@ -61,7 +58,7 @@ body {
   justify-content: center;
 }
 .radar {
-  font-family: "Kanit", sans-serif;
+  font-family: 'Kanit', sans-serif;
   text-align: center;
   background-color: #ffffff;
   padding: 4px;
@@ -87,7 +84,7 @@ body {
 
 .info {
   padding: 10px;
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   text-align: start;
   background-color: #ffffff;
 }
@@ -105,7 +102,7 @@ tr {
 }
 
 .button {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
 }
 .strong2 {
   font-weight: bold;
@@ -118,15 +115,14 @@ tr {
   height: 40px;
 }
 td {
-  font-family: "Prompt", sans-serif;
+  font-family: 'Prompt', sans-serif;
   text-align: start;
-  font-size: "12px";
+  font-size: '12px';
 }
 
 .table {
-  font-size: "12px";
+  font-size: '12px';
 }
-
 
 .logo {
   margin-left: auto;
