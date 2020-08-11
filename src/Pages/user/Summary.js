@@ -1162,6 +1162,15 @@ export default function Summary(props) {
                         }
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
+                            if (/Android/i.test(navigator.userAgent)) {
+                              setTimeout(function () {
+                                let link = document.createElement('a')
+                                link.download = 'ผลประเมิน.png'
+                                link.href = imgData
+                                link.click()
+                                window.saveAs(imgData, 'ผลประเมิน.png')
+                              }, 6000)
+                            }
                             if (/iPad/i.test(navigator.userAgent)) {
                               domtoimage.toPng(input, param).then((imgData) => {
                                 setTimeout(function () {
