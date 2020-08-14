@@ -1,45 +1,45 @@
-import React from "react";
-import Navbar from "../../component/user/Navbar";
-import Grid from "@material-ui/core/Grid";
-import { green } from "@material-ui/core/colors";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import { createMuiTheme } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import { Alert, AlertTitle } from "@material-ui/lab";
-import "../../App.css";
-import Link from "@material-ui/core/Link";
-import PlayArrowRoundedIcon from "@material-ui/icons/PlayArrowRounded";
-import logo from "../../pic/transfer-to-ocsc.png";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import React from 'react'
+import Navbar from '../../component/user/Navbar'
+import Grid from '@material-ui/core/Grid'
+import { green } from '@material-ui/core/colors'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import Box from '@material-ui/core/Box'
+import { createMuiTheme } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import { Alert, AlertTitle } from '@material-ui/lab'
+import '../../App.css'
+import Link from '@material-ui/core/Link'
+import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded'
+import logo from '../../pic/transfer-to-ocsc.png'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({}))
 
 export default function Home() {
-  const classes = useStyles();
+  const classes = useStyles()
   const theme = createMuiTheme({
     typography: {
       fontFamily: '"Prompt", serif',
     },
-  });
+  })
   const GreenCheckbox = withStyles({
     root: {
       color: green[400],
-      "&$checked": {
+      '&$checked': {
         color: green[600],
       },
     },
     checked: {},
-  })((props) => <Checkbox color="default" {...props} />);
+  })((props) => <Checkbox color="default" {...props} />)
   const [state, setState] = React.useState({
     checkedG: false,
-  });
+  })
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
+    setState({ ...state, [event.target.name]: event.target.checked })
+  }
 
   return (
     <div className="container" theme={theme}>
@@ -62,7 +62,7 @@ export default function Home() {
                     bgcolor="background.paper"
                     boxShadow={3}
                     spacing={1}
-                    style={{ borderRadius: "10px" }}
+                    style={{ borderRadius: '10px' }}
                   >
                     <div>
                       <h2>แบบประเมินความสนใจของบุคคลที่มีต่องานราชการไทย</h2>
@@ -112,6 +112,7 @@ export default function Home() {
                             </h4>
                           </Alert>
                         </Box>
+
                         <FormControlLabel
                           value="start"
                           control={
@@ -122,8 +123,9 @@ export default function Home() {
                             />
                           }
                           label={
-                            <h5 style={{fontWeight:"900"}}>
-                              ข้าพเจ้า นาย/นาง/นางสาว ........... ยินยอมให้ข้อมูล
+                            <h5 style={{ fontWeight: '900' }}>
+                              ข้าพเจ้า นาย/นาง/นางสาว ...........
+                              ยินยอมให้ข้อมูล
                             </h5>
                           }
                           labelPlacement="end"
@@ -172,5 +174,5 @@ export default function Home() {
         </Container>
       </div>
     </div>
-  );
+  )
 }

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/aptitude-test/static/css/main.279c9056.chunk.css",
-    "main.js": "/aptitude-test/static/js/main.08abfea7.chunk.js",
-    "main.js.map": "/aptitude-test/static/js/main.08abfea7.chunk.js.map",
+    "main.js": "/aptitude-test/static/js/main.a3514b7f.chunk.js",
+    "main.js.map": "/aptitude-test/static/js/main.a3514b7f.chunk.js.map",
     "runtime-main.js": "/aptitude-test/static/js/runtime-main.6af16009.js",
     "runtime-main.js.map": "/aptitude-test/static/js/runtime-main.6af16009.js.map",
     "static/js/2.8a4494f0.chunk.js": "/aptitude-test/static/js/2.8a4494f0.chunk.js",
     "static/js/2.8a4494f0.chunk.js.map": "/aptitude-test/static/js/2.8a4494f0.chunk.js.map",
     "index.html": "/aptitude-test/index.html",
-    "precache-manifest.e7d20bb8b7680a842b40c72e6a15323b.js": "/aptitude-test/precache-manifest.e7d20bb8b7680a842b40c72e6a15323b.js",
+    "precache-manifest.8878606e35fa3adce903286755fde7d9.js": "/aptitude-test/precache-manifest.8878606e35fa3adce903286755fde7d9.js",
     "service-worker.js": "/aptitude-test/service-worker.js",
     "static/css/main.279c9056.chunk.css.map": "/aptitude-test/static/css/main.279c9056.chunk.css.map",
     "static/js/2.8a4494f0.chunk.js.LICENSE.txt": "/aptitude-test/static/js/2.8a4494f0.chunk.js.LICENSE.txt",
@@ -22,6 +22,6 @@
     "static/js/runtime-main.6af16009.js",
     "static/js/2.8a4494f0.chunk.js",
     "static/css/main.279c9056.chunk.css",
-    "static/js/main.08abfea7.chunk.js"
+    "static/js/main.a3514b7f.chunk.js"
   ]
 }
