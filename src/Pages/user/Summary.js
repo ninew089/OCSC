@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState } from 'react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import DescriptionIcon from '@material-ui/icons/Description'
-import { saveAs } from 'file-saver'
+
 import domtoimage from 'dom-to-image'
-import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf'
+
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
@@ -1073,7 +1073,50 @@ export default function Summary(props) {
                       color: 'local',
                     }}
                     alignItems="left"
-                    onClick={handlePrint}
+                    onClick={() => {
+                      const input = document.getElementById('page')
+                      html2canvas(input).then((canvas) => {
+                        // eslint-disable-next-line
+                        const imgData = canvas.toDataURL('image/png')
+                        const pdf = new jsPDF()
+                        const scale = 3
+                        const style = {
+                          transform: 'scale(' + scale + ')',
+                          transformOrigin: 'top left',
+                          width: input.offsetWidth + 'px',
+                          height: input.offsetHeight + 'px',
+                        }
+                        const param = {
+                          height: input.offsetHeight * scale,
+                          width: input.offsetWidth * scale,
+                          quality: 1,
+                          style,
+                        }
+                        if (pdf) {
+                          domtoimage.toPng(input, param).then((imgData) => {
+                            let link = document.createElement('a')
+                           
+                            function ImagetoPrint(source)
+                            {
+                                return "<html><head><scri"+"pt>function step1(){\n" +
+                                        "setTimeout('step2()', 10);}\n" +
+                                        "function step2(){window.print();window.close()}\n" +
+                                        "</scri" + "pt></head><body onload='step1()'>\n" +
+                                        "<img src='" + source + "' /></body></html>";
+                            }
+                            if (/Chrome/i.test(navigator.userAgent)) {
+                              pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
+                              window.open(pdf.output('bloburl'), '_blank').print()
+                             
+                            }
+                            else{
+                              handlePrint()
+                            }
+                          })
+                        }
+                      })
+                     
+                    }}
                     className={classes.button}
                   >
                     <PrintIcon style={{ color: 'ghostwhite' }} />

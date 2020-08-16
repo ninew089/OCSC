@@ -1,12 +1,12 @@
-import React from "react";
-import { HorizontalBar } from "react-chartjs-2";
-import StopRoundedIcon from "@material-ui/icons/StopRounded";
-import Data from "../Data/tableData";
-import "../Css/Work.css";
+import React from 'react'
+import { HorizontalBar } from 'react-chartjs-2'
+import StopRoundedIcon from '@material-ui/icons/StopRounded'
+import Data from '../Data/tableData'
+import '../Css/Work.css'
 
 const ChartPage = (props) => {
-  const { summary1 } = props;
-  const Data1 = Data;
+  const { summary1 } = props
+  const Data1 = Data
   const sort1 = [
     {
       name: Data1[0].name,
@@ -116,12 +116,12 @@ const ChartPage = (props) => {
       context: summary1[17].context,
       mean: summary1[17].mean,
     },
-  ];
+  ]
   function mycomparator(a, b) {
-    return parseFloat(a.mean) - parseFloat(b.mean);
+    return parseFloat(b.mean) - parseFloat(a.mean)
   }
 
-  const sort2 = sort1.sort(mycomparator);
+  const sort2 = sort1.sort(mycomparator)
 
   const data = {
     labels: [
@@ -146,14 +146,14 @@ const ChartPage = (props) => {
     ],
     datasets: [
       {
-        label: "มิติกิจกรรมการทำงาน",
-        backgroundColor: "#FF6384",
-        borderColor: "#FF6384",
+        label: 'มิติกิจกรรมการทำงาน',
+        backgroundColor: '#FF6384',
+        borderColor: '#FF6384',
         borderWidth: 1,
         barThickness: 6,
         barPercentage: 0.25,
-        hoverBackgroundColor: "#FF6384",
-        hoverBorderColor: "#FF6384",
+        hoverBackgroundColor: '#FF6384',
+        hoverBorderColor: '#FF6384',
         data: [
           sort2[0].active,
           sort2[1].active,
@@ -176,14 +176,14 @@ const ChartPage = (props) => {
         ],
       },
       {
-        label: "มิติบริบทการทำงาน",
-        backgroundColor: "#36A2EB",
-        borderColor: "#36A2EB",
+        label: 'มิติบริบทการทำงาน',
+        backgroundColor: '#36A2EB',
+        borderColor: '#36A2EB',
         borderWidth: 1,
         barThickness: 6,
         barPercentage: 0.25,
-        hoverBackgroundColor: "#36A2EB",
-        hoverBorderColor: "#36A2EB",
+        hoverBackgroundColor: '#36A2EB',
+        hoverBorderColor: '#36A2EB',
         data: [
           sort2[0].context,
           sort2[1].context,
@@ -206,14 +206,14 @@ const ChartPage = (props) => {
         ],
       },
       {
-        label: "ค่าเฉลีย",
-        backgroundColor: "#FFCE56",
-        borderColor: "#FFCE56",
+        label: 'ค่าเฉลีย',
+        backgroundColor: '#FFCE56',
+        borderColor: '#FFCE56',
         borderWidth: 1,
         barThickness: 10,
         barPercentage: 0.5,
-        hoverBackgroundColor: "#FFCE56",
-        hoverBorderColor: "#FFCE56",
+        hoverBackgroundColor: '#FFCE56',
+        hoverBorderColor: '#FFCE56',
         data: [
           sort2[0].mean,
           sort2[1].mean,
@@ -236,8 +236,7 @@ const ChartPage = (props) => {
         ],
       },
     ],
-  };
-  
+  }
 
   return (
     <div className="flex flex-col items-center w-full max-w-md">
@@ -248,18 +247,18 @@ const ChartPage = (props) => {
               <td>
                 <StopRoundedIcon
                   style={{
-                    background: "#FF6384",
-                    color: "#FF6384",
-                    fontSize: "12px",
+                    background: '#FF6384',
+                    color: '#FF6384',
+                    fontSize: '12px',
                   }}
                 />
               </td>
               <td
                 style={{
-                  textalign: "start",
-                  color: "darkslategray",
-                  fontweight: "400",
-                  fontSize: "12px",
+                  textalign: 'start',
+                  color: 'darkslategray',
+                  fontweight: '400',
+                  fontSize: '12px',
                 }}
               >
                 มิติกิจกรรมการทำงาน
@@ -267,21 +266,21 @@ const ChartPage = (props) => {
             </tr>
             <tr>
               <td>
-                {" "}
+                {' '}
                 <StopRoundedIcon
                   style={{
-                    background: "#36A2EB",
-                    color: "#36A2EB",
-                    fontSize: "12px",
+                    background: '#36A2EB',
+                    color: '#36A2EB',
+                    fontSize: '12px',
                   }}
                 />
               </td>
               <td
                 style={{
-                  textalign: "start",
-                  color: "darkslategray",
-                  fontweight: "400",
-                  fontSize: "12px",
+                  textalign: 'start',
+                  color: 'darkslategray',
+                  fontweight: '400',
+                  fontSize: '12px',
                 }}
               >
                 มิติบริบทการทำงาน
@@ -291,19 +290,19 @@ const ChartPage = (props) => {
               <td>
                 <StopRoundedIcon
                   style={{
-                    background: "#FFCE56",
-                    color: "#FFCE56",
-                    fontSize: "12px",
+                    background: '#FFCE56',
+                    color: '#FFCE56',
+                    fontSize: '12px',
                   }}
                 />
               </td>
               <td
                 style={{
-                  fontsize: "12px",
-                  textalign: "start",
-                  color: "darkslategray",
-                  fontweight: "400",
-                  fontSize: "12px",
+                  fontsize: '12px',
+                  textalign: 'start',
+                  color: 'darkslategray',
+                  fontweight: '400',
+                  fontSize: '12px',
                 }}
               >
                 ค่าเฉลีย
@@ -323,73 +322,73 @@ const ChartPage = (props) => {
               {
                 ticks: {
                   stepSize: 0.1,
-                  callback: function(value, index, values) {
-                    if ((value) < -0.3) {
-                      return value;
-                  }
-                    if ((value) === -0.3) {
-                        return value;
+                  callback: function (value, index, values) {
+                    if (value < -0.3) {
+                      return value
                     }
-                    if ((value) === -0.1) {
-                      return value;
-                  }if ((value) === 0) {
-                    return value;
-                }
-                if ((value) === 0.1) {
-                  return value;
-              }if ((value) === 0.3) {
-                return value;
-            } if ((value) > 0.3) {
-              return value;
-          }
-          }
+                    if (value === -0.3) {
+                      return value
+                    }
+                    if (value === -0.1) {
+                      return value
+                    }
+                    if (value === 0) {
+                      return value
+                    }
+                    if (value === 0.1) {
+                      return value
+                    }
+                    if (value === 0.3) {
+                      return value
+                    }
+                    if (value > 0.3) {
+                      return value
+                    }
+                  },
                 },
                 gridLines: {
-                  lineWidth: 3,
-                 
-                  zeroLineColor: "#FFF",
+                  lineWidth: 0,
+
+                  zeroLineColor: '#FFF',
                   zeroLineWidth: 2,
                 },
-              },{  gridLines: {
-                drawBorder:false,
-                drawTicks:false,
-                offsetGridLines:true,
-                drawOnChartArea: false, // only want the grid lines for one axis to show up
-              }, ticks: {
-                autoSkip: false,
-                maxRotation: 0,
-                minRotation: 0
-              },afterTickToLabelConversion: function(data){
+              },
+              {
+                gridLines: {
+                  drawBorder: false,
+                  drawTicks: false,
+                  offsetGridLines: true,
+                  drawOnChartArea: false, // only want the grid lines for one axis to show up
+                },
+                ticks: {
+                  autoSkip: false,
+                  maxRotation: 0,
+                  minRotation: 0,
+                },
+                afterTickToLabelConversion: function (data) {
+                  var xLabels = data.ticks
 
-            
-                var xLabels = data.ticks;
-            
-                xLabels.forEach(function (labels, i) {
-               
-                    if ( i===0 ){
-                     return xLabels[i] = "ไม่เหมาะสม";
-
+                  xLabels.forEach(function (labels, i) {
+                    if (i === 0) {
+                      return (xLabels[i] = 'ไม่เหมาะสม')
                     }
-                    if (i  === 17){
-                      return xLabels[i] = "เหมาะสม";
-
-                  }else{
-                   return xLabels[i] = "";
-                  }
-                
-                });
-            } },
+                    if (i === 17) {
+                      return (xLabels[i] = 'เหมาะสม')
+                    } else {
+                      return (xLabels[i] = '')
+                    }
+                  })
+                },
+              },
             ],
-            
           },
           legend: {
             display: false,
-            position: "top",
+            position: 'top',
           },
         }}
       />
- 
     </div>
-  );
-};
-export default ChartPage;
+  )
+}
+export default ChartPage
