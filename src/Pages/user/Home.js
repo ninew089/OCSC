@@ -16,7 +16,7 @@ import logo from '../../pic/transfer-to-ocsc.png'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
-
+import Toolbar from '@material-ui/core/Toolbar'
 const useStyles = makeStyles((theme) => ({}))
 
 export default function Home() {
@@ -56,11 +56,13 @@ export default function Home() {
     <div className="container" theme={theme}>
       <div className="row">
         <Navbar />
+        <Toolbar />
+        <Toolbar />
 
         <Container maxWidth="sm" alignItems="center">
           <div className="box">
             <Container fixed>
-              <Box paddingTop={20}>
+              <Box paddingTop={4}>
                 <Grid
                   container
                   direction="row"
