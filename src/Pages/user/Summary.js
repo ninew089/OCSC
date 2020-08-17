@@ -1094,28 +1094,17 @@ export default function Summary(props) {
                         }
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
-                            let link = document.createElement('a')
-                           
-                            function ImagetoPrint(source)
-                            {
-                                return "<html><head><scri"+"pt>function step1(){\n" +
-                                        "setTimeout('step2()', 10);}\n" +
-                                        "function step2(){window.print();window.close()}\n" +
-                                        "</scri" + "pt></head><body onload='step1()'>\n" +
-                                        "<img src='" + source + "' /></body></html>";
-                            }
                             if (/Chrome/i.test(navigator.userAgent)) {
                               pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
-                              window.open(pdf.output('bloburl'), '_blank').print()
-                             
-                            }
-                            else{
+                              window
+                                .open(pdf.output('bloburl'), '_blank')
+                                .print()
+                            } else {
                               handlePrint()
                             }
                           })
                         }
                       })
-                     
                     }}
                     className={classes.button}
                   >
@@ -1179,7 +1168,7 @@ export default function Summary(props) {
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
                             let link = document.createElement('a')
-                            link.download = 'iผลประเมิน.png'
+                            link.download = 'ผลประเมิน.png'
                             link.href = imgData
 
                             // To save manually somewhere in file explorer
@@ -1220,7 +1209,7 @@ export default function Summary(props) {
                                   pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
                                   window.open(pdf.output('bloburl'), '_blank')
                                   pdf.save('ผลการประเมิน.pdf')
-                                }, 950)
+                                }, 6000)
                               })
                             }
                             if (/Chrome/i.test(navigator.userAgent)) {

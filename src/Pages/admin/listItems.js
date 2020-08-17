@@ -43,7 +43,7 @@ function eraseCookieFromAllPaths(name) {
   document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;'
 
   for (var i = 0; i < pathBits.length; i++) {
-    pathCurrent += (pathCurrent.substr(-1) != '/' ? '/' : '') + pathBits[i]
+    pathCurrent += (pathCurrent.substr(-1) !== '/' ? '/' : '') + pathBits[i]
     document.cookie =
       name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;' + pathCurrent + ';'
   }
@@ -62,6 +62,7 @@ function del() {
           window.location.host.split('.').slice(-2).join('.') +
           ';' +
           pathCurrent +
+          pathBits +
           ';',
       )
   })

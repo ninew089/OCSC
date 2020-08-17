@@ -15,7 +15,7 @@ import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded'
 import logo from '../../pic/transfer-to-ocsc.png'
 import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from '@material-ui/core/FormGroup';
+import FormGroup from '@material-ui/core/FormGroup'
 
 const useStyles = makeStyles((theme) => ({}))
 
@@ -46,13 +46,11 @@ export default function Home() {
   })((props) => <Checkbox color="default" {...props} />)
   const [state, setState] = React.useState({
     selectedValue: '',
-    
   })
 
   const handleChange = (event) => {
     setState({ ...state, selectedValue: event.target.value })
   }
-
 
   return (
     <div className="container" theme={theme}>
@@ -125,48 +123,60 @@ export default function Home() {
                             </h4>
                           </Alert>
                         </Box>
-                        <Box p={4} style={{ paddingTop: "0px",paddingBottom: "0px"}}>
-                        <h6 style={{ paddingTop: "0px",paddingBottom: "0px",marginBlockStart:"0em",
-    marginBlockEnd:"0px"}}>
-                       
-                                &nbsp; &nbsp; &nbsp; &nbsp;ข้าพเจ้าตกลงยินยอมให้สำนักงาน &nbsp;ก.พ. &nbsp;เก็บรวบรวม ใช้ ข้อมูลการทำแบบประเมินความสนใจของบุคคลที่มีต่องานราชการไทย &nbsp;ข้าพเจ้า &nbsp;เพื่อประโยชน์ของราชการเท่านั้น &nbsp;ข้อมูลการทำแบบประเมินจะถูกเผยแพร่แบบสรุปเชิงสถิติ &nbsp;เช่น จำนวนผู้ทำแบบประเมินชาย/หญิง &nbsp;เป็นต้น &nbsp;ข้อมูลส่วนบุคคล &nbsp;( ชื่อ นามสกุล เพศ อายุ ระดับการศึกษา สาขาที่สำเร็จการศึกษา ) &nbsp;จะถูกเก็บรักษาไว้เป็นความลับ &nbsp;ในกรณีที่ต้องการเพิกถอนความยินยอม &nbsp;โปรดติดต่อ &nbsp;สำนักงานคณะกรรมการข้าราชการพลเรือน &nbsp;47/111 &nbsp;ถนนติวานนท์ &nbsp;ตำบลตลาดขวัญ &nbsp;อำเภอเมือง &nbsp;จังหวัดนนทบุรี &nbsp;โทรศัพท์ &nbsp;02-547-1000
-                   
-                            </h6>
-                          
+                        <Box
+                          p={4}
+                          style={{ paddingTop: '0px', paddingBottom: '0px' }}
+                        >
+                          <h6
+                            style={{
+                              paddingTop: '0px',
+                              paddingBottom: '0px',
+                              marginBlockStart: '0em',
+                              marginBlockEnd: '0px',
+                            }}
+                          >
+                            &nbsp; &nbsp; &nbsp;
+                            &nbsp;ข้าพเจ้าตกลงยินยอมให้สำนักงาน &nbsp;ก.พ.
+                            &nbsp;เก็บรวบรวม ใช้
+                            ข้อมูลการทำแบบประเมินความสนใจของบุคคลที่มีต่องานราชการไทย
+                            &nbsp;ข้าพเจ้า เพื่อประโยชน์ของราชการเท่านั้น
+                            &nbsp;ข้อมูลการทำแบบประเมินจะถูกเผยแพร่แบบสรุปเชิงสถิติ
+                            &nbsp;เช่น จำนวนผู้ทำแบบประเมินชาย/หญิง
+                            &nbsp;เป็นต้น ข้อมูลส่วนบุคคล ( ชื่อ นามสกุล เพศ
+                            อายุ ระดับการศึกษา สาขาที่สำเร็จการศึกษา )
+                            จะถูกเก็บรักษาไว้เป็นความลับ
+                          </h6>
                         </Box>
-                        <FormGroup  row    >
-                        <FormControlLabel
-                          value="start"
-                          control={
-                            <GreenCheckbox
-                            onChange={handleChange}
-                              checked={state.selectedValue === 'a'}
-                              value="a"
-                              name="checkedG"
-                            />
-                          }
-                          label={
-                            <h5 style={{ fontWeight: '900' }}>
-                              ยินยอม
-                            </h5>
-                          }
-                          labelPlacement="end"
-                        />
-                       <FormControlLabel
-                        control={<RedCheckbox   
-                          value="b"
-                          
-                          onChange={handleChange}
-                        checked={state.selectedValue === 'b'}
-                        name="checkedA" />}
-        label={
-          <h5 style={{ fontWeight: '900' }}>
-            ไม่ยินยอม
-          </h5>
-        }
-      />
-                        
-      </FormGroup>
+                        <FormGroup row>
+                          <FormControlLabel
+                            value="start"
+                            control={
+                              <GreenCheckbox
+                                onChange={handleChange}
+                                checked={state.selectedValue === 'a'}
+                                value="a"
+                                name="checkedG"
+                              />
+                            }
+                            label={
+                              <h5 style={{ fontWeight: '900' }}>ยินยอม</h5>
+                            }
+                            labelPlacement="end"
+                          />
+                          <FormControlLabel
+                            control={
+                              <RedCheckbox
+                                value="b"
+                                onChange={handleChange}
+                                checked={state.selectedValue === 'b'}
+                                name="checkedA"
+                              />
+                            }
+                            label={
+                              <h5 style={{ fontWeight: '900' }}>ไม่ยินยอม</h5>
+                            }
+                          />
+                        </FormGroup>
                       </Grid>
 
                       <Grid
@@ -177,7 +187,7 @@ export default function Home() {
                         spacing={4}
                       >
                         <Box p={2} spacing={2}>
-                          {state.selectedValue ==="a"? (
+                          {state.selectedValue === 'a' ? (
                             <Link href={`${process.env.PUBLIC_URL}/main`}>
                               <Button
                                 variant="contained"
@@ -190,7 +200,7 @@ export default function Home() {
                               </Button>
                             </Link>
                           ) : (
-                          ""
+                            ''
                           )}
                         </Box>
                       </Grid>
