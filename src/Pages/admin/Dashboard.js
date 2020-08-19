@@ -129,7 +129,7 @@ export default function Dashboard() {
     text: 'ok',
   })
   const url =
-    'https://cubioinfo.com/aptitude-test/api/answersheets/' +
+    'https://job-match.ocsc.go.th/api/answersheets/' +
     date.startdate +
     '/' +
     date.enddate
@@ -258,7 +258,6 @@ export default function Dashboard() {
       }
       setData({ ...data, datas: result })
     }
-    console.log(data)
   }
   return (
     <div className={classes.root}>

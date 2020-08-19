@@ -1,27 +1,26 @@
 export default async function get(start, end) {
-  const url =
-    "https://cubioinfo.com/aptitude-test/api/statistics/" + start + "/" + end;
+  const url = 'https://job-match.ocsc.go.th/api/statistics/' + start + '/' + end
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url)
     if (response.ok) {
       return await response
         .clone()
         .json()
-        .catch(() => response.text());
+        .catch(() => response.text())
     }
     if (response.status <= 501) {
-      return response.status;
+      return response.status
     }
   } catch (error) {
     if (error.response) {
-      console.log(error.response.headers);
-      return error.response.status;
+      console.log(error.response.headers)
+      return error.response.status
     } else if (error.request) {
-      console.log(error.request);
+      console.log(error.request)
     } else {
-      console.log("Error", error.message);
+      console.log('Error', error.message)
     }
-    console.log(error.config);
+    console.log(error.config)
   }
 }

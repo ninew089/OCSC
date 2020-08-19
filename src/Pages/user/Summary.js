@@ -1006,7 +1006,7 @@ export default function Summary(props) {
                   <Modal
                     status={test1.status}
                     link={
-                      'https://cubioinfo.com/aptitude-test/api/post/answersheets/1'
+                      'https://job-match.ocsc.go.th/api/post/answersheets/1'
                     }
                   />
                 ) : (

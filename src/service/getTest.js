@@ -1,12 +1,12 @@
 export default async function get() {
-  const url = "https://cubioinfo.com/aptitude-test/api/tests/1";
+  const url = 'https://job-match.ocsc.go.th/api/tests/1'
   try {
-    const response = await fetch(url);
+    const response = await fetch(url)
     if (response.ok) {
       return await response
         .clone()
         .json()
-        .catch(() => response.text());
+        .catch(() => response.text())
       // return await response.json();
     }
     if (response.status <= 501) {
@@ -18,7 +18,7 @@ export default async function get() {
       // window.location.href = `${process.env.PUBLIC_URL}`;
       // console.log(response.status);
       // eslint-disable-next-line prefer-promise-reject-errors
-      return response.status;
+      return response.status
     }
     // return await response.json();
   } catch (error) {
@@ -36,19 +36,19 @@ export default async function get() {
       //  "\nhttps://cubioinfo.com/aptitude-test/api/tests/1"
       //  );
       //  window.location.href = `${process.env.PUBLIC_URL}`;
-      console.log(error.response.headers);
-      return error.response.status;
+      console.log(error.response.headers)
+      return error.response.status
     } else if (error.request) {
       /*
        * The request was made but no response was received, `error.request`
        * is an instance of XMLHttpRequest in the browser and an instance
        * of http.ClientRequest in Node.js
        */
-      console.log(error.request);
+      console.log(error.request)
     } else {
       // Something happened in setting up the request and triggered an Error
-      console.log("Error", error.message);
+      console.log('Error', error.message)
     }
-    console.log(error.config);
+    console.log(error.config)
   }
 }

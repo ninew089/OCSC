@@ -1,29 +1,29 @@
 export default async function post(something, uid) {
-  const url = "https://cubioinfo.com/aptitude-test/api/tokens/" + uid;
+  const url = 'https://job-match.ocsc.go.th/api/tokens/' + uid
 
   try {
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/problem+json; charset=utf-8",
+        'Content-Type': 'application/problem+json; charset=utf-8',
       },
 
       body: JSON.stringify(something),
-    });
+    })
 
     if (response.ok) {
-      return await response.json();
+      return await response.json()
     }
     if (response.status <= 501) {
-      return response.status;
+      return response.status
     }
   } catch (error) {
     if (error.response) {
-      return error.response.status;
+      return error.response.status
     } else if (error.request) {
-      return error.request;
+      return error.request
     } else {
-      return 999;
+      return 999
     }
   }
 }

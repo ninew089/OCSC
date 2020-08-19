@@ -8,11 +8,7 @@ import SearchIcon from '@material-ui/icons/Search'
 import VpnKeyIcon from '@material-ui/icons/VpnKey'
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
 import '../../index.css'
-function get_cookie(name) {
-  return document.cookie.split(';').some((c) => {
-    return c.trim().startsWith(name + '=')
-  })
-}
+
 function deleteAllCookies() {
   var cookies = document.cookie.split(';')
 
@@ -23,17 +19,7 @@ function deleteAllCookies() {
     document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT'
   }
 }
-function delete_cookie(name, path) {
-  var domain = window.location.hostname
-  if (get_cookie(name)) {
-    document.cookie =
-      name +
-      '=' +
-      (path ? ';path=' + path : '') +
-      (domain ? ';domain=' + domain : '') +
-      ';expires=Thu, 01 Jan 1970 00:00:01 GMT'
-  }
-}
+
 function eraseCookieFromAllPaths(name) {
   // This function will attempt to remove a cookie from all paths.
   var pathBits = window.location.pathname.split('/')
@@ -72,8 +58,6 @@ const onSubmit = () => {
   del()
   eraseCookieFromAllPaths('token')
   eraseCookieFromAllPaths('uid')
-  delete_cookie('token', '/aptitude-test')
-  delete_cookie('uid', '/aptitude-test')
 }
 export const mainListItems = (
   <div className="font">
