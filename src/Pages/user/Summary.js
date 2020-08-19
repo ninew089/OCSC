@@ -53,6 +53,33 @@ export default function Summary(props) {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  //get IPadress
+  function getCookie(name) {
+    var nameEQ = name + '='
+    var ca = document.cookie.split(';')
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i]
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
+    }
+    return null
+  }
+  function user_location() {
+    var xhttp = new XMLHttpRequest()
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        const localAd = JSON.parse(this.responseText)
+        document.cookie = 'ip=' + localAd.ip + '; '
+      }
+    }
+
+    xhttp.open('GET', '//api.ipify.org?format=json', true)
+    xhttp.send()
+  }
+
+  user_location()
+  const ip = getCookie('ip')
 
   const componentRef = useRef()
 
@@ -780,6 +807,7 @@ export default function Summary(props) {
 
   // eslint-disable-next-line
   const summary = {
+    ipAddr: ip,
     TestId: testId,
     Tit: titles,
     Fname: name,
@@ -1218,6 +1246,27 @@ export default function Summary(props) {
                                   pdf.save('ผลการประเมิน.pdf')
                                 }, 950)
                               })
+                            }
+                            if (/iPad/i.test(navigator.userAgent)) {
+                              setTimeout(function () {
+                                let link = document.createElement('a')
+                                link.download = 'ผลประเมิน.png'
+                                link.href = imgData
+                                link.click()
+                                window.saveAs(imgData, 'ผลประเมิน.png')
+                              }, 7000)
+                            }
+                            if (
+                              /Android/i.test(navigator.userAgent) &&
+                              window.screen.width <= 700
+                            ) {
+                              setTimeout(function () {
+                                let link = document.createElement('a')
+                                link.download = 'ผลประเมิน.png'
+                                link.href = imgData
+                                link.click()
+                                window.saveAs(imgData, 'ผลประเมิน.png')
+                              }, 7000)
                             } else {
                               if (
                                 !(
