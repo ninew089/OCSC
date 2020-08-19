@@ -530,6 +530,40 @@ export default function HorizontalLabelPositionBelowStepper() {
         return 'Unknown stepIndex'
     }
   }
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(';')
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i]
+      var eqPos = cookie.indexOf('=')
+
+      document.cookie = 'ip=;expires=Thu, 01 Jan 1970 00:00:00 GMT'
+    }
+  }
+
+  function del() {
+    var pathBits = window.location.pathname.split('/')
+    var pathCurrent = ' path='
+    document.cookie.split(';').forEach(function (c) {
+      document.cookie = c
+        .replace(/^ +/, '')
+        .replace(
+          /=.*/,
+          'ip=;expires=' +
+            new Date().toUTCString() +
+            ';domain=.' +
+            window.location.host.split('.').slice(-2).join('.') +
+            ';' +
+            pathCurrent +
+            pathBits +
+            ';',
+        )
+    })
+  }
+  const onDel = () => {
+    deleteAllCookies()
+    del()
+  }
 
   return (
     <div className={classes.root}>
@@ -579,6 +613,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                     variant="contained"
                     color="primary"
                     type="submit"
+                    onClick={onDel}
                     width={20}
                   >
                     {activeStep === 4 ? <p>เสร็จสิ้น</p> : <p>ถัดไป</p>}
