@@ -31,7 +31,7 @@ export default function ProminentAppBar() {
         <Toolbar className={classes.toolbar}>
           <img src={logo} alt="logo" className={classes.logo} width="340px" />
           <div className="logo" style={{background: "ghostwhite",
-    width: "400px",
+ 
     borderRadius: "300px 80px 80px 300px"}}>
             <img
               src={logos}
