@@ -1209,7 +1209,7 @@ export default function Summary(props) {
                                   pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
                                   window.open(pdf.output('bloburl'), '_blank')
                                   pdf.save('ผลการประเมิน.pdf')
-                                }, 6000)
+                                }, 7000)
                               })
                             }
                             if (/Chrome/i.test(navigator.userAgent)) {
@@ -1227,7 +1227,7 @@ export default function Summary(props) {
                                 link.href = imgData
                                 link.click()
                                 window.saveAs(imgData, 'ผลประเมิน.png')
-                              }, 6000)
+                              }, 7000)
                             }
                           })
                         }
