@@ -1194,25 +1194,23 @@ export default function Summary(props) {
                         }
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
-                            if (/Android/i.test(navigator.userAgent)) {
-                              setTimeout(function () {
-                                let link = document.createElement('a')
-                                link.download = 'ผลประเมิน.png'
-                                link.href = imgData
-                                link.click()
-                                window.saveAs(imgData, 'ผลประเมิน.png')
-                              }, 6000)
-                            }
-                            if (/iPad/i.test(navigator.userAgent)) {
+                            if (
+                              /Safari/.test(navigator.userAgent) &&
+                              /Apple Computer/.test(navigator.vendor) &&
+                              !/Mobi|Android/i.test(navigator.userAgent)
+                            ) {
                               domtoimage.toPng(input, param).then((imgData) => {
                                 setTimeout(function () {
                                   pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
                                   window.open(pdf.output('bloburl'), '_blank')
                                   pdf.save('ผลการประเมิน.pdf')
-                                }, 7000)
+                                }, 950)
                               })
                             }
-                            if (/Chrome/i.test(navigator.userAgent)) {
+                            if (
+                              /Chrome/i.test(navigator.userAgent) &&
+                              /Google Inc/.test(navigator.vendor)
+                            ) {
                               domtoimage.toPng(input, param).then((imgData) => {
                                 setTimeout(function () {
                                   pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
@@ -1221,13 +1219,23 @@ export default function Summary(props) {
                                 }, 950)
                               })
                             } else {
-                              setTimeout(function () {
-                                let link = document.createElement('a')
-                                link.download = 'ผลประเมิน.png'
-                                link.href = imgData
-                                link.click()
-                                window.saveAs(imgData, 'ผลประเมิน.png')
-                              }, 7000)
+                              if (
+                                !(
+                                  /Safari/.test(navigator.userAgent) &&
+                                  /Apple Computer/.test(navigator.vendor) &&
+                                  !/Mobi|Android/i.test(navigator.userAgent)
+                                )
+                              ) {
+                                if (!/Chrome/i.test(navigator.userAgent)) {
+                                  setTimeout(function () {
+                                    let link = document.createElement('a')
+                                    link.download = 'ผลประเมิน.png'
+                                    link.href = imgData
+                                    link.click()
+                                    window.saveAs(imgData, 'ผลประเมิน.png')
+                                  }, 7000)
+                                }
+                              }
                             }
                           })
                         }

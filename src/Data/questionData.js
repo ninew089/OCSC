@@ -2,399 +2,399 @@ export default [
   {
     header: '1. การวิเคราะห์ปรากฎการณ์ต่างๆ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '2. การตัดสินใจและการแก้ปัญหา',
 
-    value: '',
+    value: 2,
   },
   {
     header: '3. การเปรียบเทียบตามมาตรฐาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '4. การตั้งเป้าหมายและการวางกลยุทธ์',
 
-    value: '',
+    value: 2,
   },
   {
     header: '5. การประเมินคุณภาพ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '6. การประมวลข้อมูลเชิงปริมาณหรือตัวเลข',
 
-    value: '',
+    value: 2,
   },
   {
     header: '7. การศึกษาข้อมูล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '8. การสร้างความสัมพันธ์ระหว่างบุคคล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '9. การประสานงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '10. การสื่อสารภายนอกหน่วยงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '11. การช่วยเหลือและดูแลบุคคลอื่น',
 
-    value: '',
+    value: 2,
   },
   {
     header: '12. การสื่อสารภายในหน่วยงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '13. การมีปฏิสัมพันธ์กับสาธารณชน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '14. การบริหารการเปลี่ยนแปลง',
 
-    value: '',
+    value: 2,
   },
   {
     header: '15.  การวิจัย/การทดลอง',
 
-    value: '',
+    value: 2,
   },
   {
     header: '16. การสร้างนวัตกรรม',
 
-    value: '',
+    value: 2,
   },
   {
     header: '17. การสืบเสาะ และการค้นหาข้อมูล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '18. การใช้ความคิดเชิงหลักการและเหตุผล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '19. การคาดการณ์อนาคต',
 
-    value: '',
+    value: 2,
   },
   {
     header: '20. การติดตามสถานการณ์ทั้งในและนอกประเทศ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '21. การควบคุมเครื่องจักรเครื่องกล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '22. การควบคุมยานพาหนะ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '23. การซ่อมแซมดูแลแลรักษาอุปกรณ์ เครื่องกล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '24. การซ่อมแซมดูแลและรักษาอุปกรณ์ไฟฟ้า/อิเล็กทรอนิกส์',
 
-    value: '',
+    value: 2,
   },
   {
     header: '25. การประสานสายตาและมือในการทำงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '26. การสอนงานและการจูงใจลูกน้อง',
 
-    value: '',
+    value: 2,
   },
   {
     header: '27. การโค้ชและพัฒนาการบุคคล',
 
-    value: '',
+    value: 2,
   },
   {
     header: '28. การเป็นที่ปรึกษา',
 
-    value: '',
+    value: 2,
   },
   {
     header: '29. การประเมินความต้องการบุคคลากร การสอน และฝึกอบรม',
 
-    value: '',
+    value: 2,
   },
   {
     header: '30. การพัฒนาทีมงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '31. การประเมินเพื่อกำกับดูแลหรือปรับปรุงชิ้นงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '32. การตรวจสอบอุปกรณ์/เครื่องมือ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '33. การสังเกต เพื่อจำแนกประเภทหรือตรวจสอบสิ่งที่เกิดขึ้น',
 
-    value: '',
+    value: 2,
   },
   {
     header: '34. การกะประมาณค่า',
 
-    value: '',
+    value: 2,
   },
   {
     header: '35.   การจัดการและบริหารงบประมาณ/ทรัพยากรอื่นๆ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '36. การจัดการและบริหารทรัพยากรมนุษย์',
 
-    value: '',
+    value: 2,
   },
   {
     header: '37. การบริหารความหลากลหาย',
 
-    value: '',
+    value: 2,
   },
   {
     header: '38. การจัดตารางงานและ กจิ กรรมต่างๆ',
 
-    value: '',
+    value: 2,
   },
   {
     header: '39. การวางระบบงาน',
 
-    value: '',
+    value: 2,
   },
   {
     header: '40. การโน้มน้าวใจผู้อื่น',
 
-    value: '',
+    value: 2,
   },
   {
     header: '41. การจัดการความขัดแย้ง',
 
-    value: '',
+    value: 2,
   },
   {
     no: '1',
 
-    value: '',
+    value: 2,
   },
   {
     no: '2',
-    value: '',
+    value: 2,
   },
   {
     no: '3',
-    value: '',
+    value: 2,
   },
   {
     no: '4',
-    value: '',
+    value: 2,
   },
   {
     no: '5',
-    value: '',
+    value: 2,
   },
   {
     no: '6',
-    value: '',
+    value: 2,
   },
   {
     no: '7',
-    value: '',
+    value: 2,
   },
   {
     no: '8',
-    value: '',
+    value: 2,
   },
   {
     no: '9',
-    value: '',
+    value: 2,
   },
   {
     no: '10',
-    value: '',
+    value: 2,
   },
   {
     no: '11',
-    value: '',
+    value: 2,
   },
   {
     no: '12',
-    value: '',
+    value: 2,
   },
   {
     no: '13',
-    value: '',
+    value: 2,
   },
   {
     no: '14',
-    value: '',
+    value: 2,
   },
   {
     no: '15',
-    value: '',
+    value: 2,
   },
   {
     no: '16',
-    value: '',
+    value: 2,
   },
   {
     no: '17',
-    value: '',
+    value: 2,
   },
   {
     no: '18',
-    value: '',
+    value: 2,
   },
   {
     no: '19',
-    value: '',
+    value: 2,
   },
   {
     no: '20',
-    value: '',
+    value: 2,
   },
   {
     no: '21',
-    value: '',
+    value: 2,
   },
   {
     no: '22',
-    value: '',
+    value: 2,
   },
   {
     no: '23',
-    value: '',
+    value: 2,
   },
   {
     no: '23',
-    value: '',
+    value: 2,
   },
   {
     no: '24',
-    value: '',
+    value: 2,
   },
   {
     no: '25',
-    value: '',
+    value: 2,
   },
   {
     no: '26',
-    value: '',
+    value: 2,
   },
   {
     no: '27',
-    value: '',
+    value: 2,
   },
   {
     no: '28',
-    value: '',
+    value: 2,
   },
   {
     no: '29',
-    value: '',
+    value: 2,
   },
   {
     no: '30',
-    value: '',
+    value: 2,
   },
   {
     no: '31',
-    value: '',
+    value: 2,
   },
   {
     no: '32',
-    value: '',
+    value: 2,
   },
   {
     no: '33',
-    value: '',
+    value: 2,
   },
   {
     no: '34',
-    value: '',
+    value: 2,
   },
   {
     no: '35',
-    value: '',
+    value: 2,
   },
   {
     no: '36',
-    value: '',
+    value: 2,
   },
   {
     no: '37',
-    value: '',
+    value: 2,
   },
   {
     no: '38',
-    value: '',
+    value: 2,
   },
   {
     no: '39',
-    value: '',
+    value: 2,
   },
   {
     no: '40',
-    value: '',
+    value: 2,
   },
   {
     no: '41',
-    value: '',
+    value: 2,
   },
   {
     no: '42',
-    value: '',
+    value: 2,
   },
   {
     no: '43',
-    value: '',
+    value: 2,
   },
   {
     no: '44',
-    value: '',
+    value: 2,
   },
   {
     no: '45',
-    value: '',
+    value: 2,
   },
   {
     no: '46',
-    value: '',
+    value: 2,
   },
   {
     no: '47',
-    value: '',
+    value: 2,
   },
 ]
