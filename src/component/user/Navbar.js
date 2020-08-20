@@ -1,40 +1,40 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import logo from "./logo/OCSC-banner.png";
-import logos from "./logo/doe.png";
-import { makeStyles } from "@material-ui/core/styles";
-import "../../Css/Work.css";
+import React from 'react'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import logo from './logo/OCSC-banner.png'
+import logos from './logo/doe.png'
+import logo1 from './logo/logo.png'
+import { makeStyles } from '@material-ui/core/styles'
+import '../../Css/Work.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    display: "flex",
+    display: 'flex',
   },
   toolbar: {
     minHeight: 80,
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    alignSelf: "flex-end",
+    alignSelf: 'flex-end',
   },
-}));
+}))
 
 export default function ProminentAppBar() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{ background: "primary" }}>
+      <AppBar position="fixed" style={{ background: 'primary' }}>
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="logo" className={classes.logo} width="340px" />
-          <div className="logo" style={{background: "ghostwhite",
- 
-    borderRadius: "300px 80px 80px 300px"}}>
+          <img src={logo} alt="logo" className={classes.logo} width="240px" />
+
+          <div className="logo">
             <img
-              src={logos}
+              src={logo1}
               alt="logos"
               className={classes.logo}
               width="350px"
@@ -44,5 +44,5 @@ export default function ProminentAppBar() {
         </Toolbar>
       </AppBar>
     </div>
-  );
+  )
 }

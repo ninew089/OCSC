@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/aptitude-test/static/css/main.279c9056.chunk.css",
-    "main.js": "/aptitude-test/static/js/main.0c35b30b.chunk.js",
-    "main.js.map": "/aptitude-test/static/js/main.0c35b30b.chunk.js.map",
-    "runtime-main.js": "/aptitude-test/static/js/runtime-main.6af16009.js",
-    "runtime-main.js.map": "/aptitude-test/static/js/runtime-main.6af16009.js.map",
-    "static/js/2.8186090f.chunk.js": "/aptitude-test/static/js/2.8186090f.chunk.js",
-    "static/js/2.8186090f.chunk.js.map": "/aptitude-test/static/js/2.8186090f.chunk.js.map",
-    "index.html": "/aptitude-test/index.html",
-    "precache-manifest.37fd30009eb67a020607e4438b60668f.js": "/aptitude-test/precache-manifest.37fd30009eb67a020607e4438b60668f.js",
-    "service-worker.js": "/aptitude-test/service-worker.js",
-    "static/css/main.279c9056.chunk.css.map": "/aptitude-test/static/css/main.279c9056.chunk.css.map",
-    "static/js/2.8186090f.chunk.js.LICENSE.txt": "/aptitude-test/static/js/2.8186090f.chunk.js.LICENSE.txt",
-    "static/media/001-02.png": "/aptitude-test/static/media/001-02.11408509.png",
-    "static/media/OCSC-banner.png": "/aptitude-test/static/media/OCSC-banner.d23a216b.png",
-    "static/media/doe.png": "/aptitude-test/static/media/doe.33c589c3.png",
-    "static/media/ocsc-logo_7.png": "/aptitude-test/static/media/ocsc-logo_7.e23b2c30.png",
-    "static/media/transfer-to-ocsc.png": "/aptitude-test/static/media/transfer-to-ocsc.c5081be2.png"
+    "main.css": "/static/css/main.4403c67d.chunk.css",
+    "main.js": "/static/js/main.976f940e.chunk.js",
+    "main.js.map": "/static/js/main.976f940e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.360ed79e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.360ed79e.js.map",
+    "static/js/2.97770c2e.chunk.js": "/static/js/2.97770c2e.chunk.js",
+    "static/js/2.97770c2e.chunk.js.map": "/static/js/2.97770c2e.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.65d74b7174a880a994401e700f8bebb8.js": "/precache-manifest.65d74b7174a880a994401e700f8bebb8.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.4403c67d.chunk.css.map": "/static/css/main.4403c67d.chunk.css.map",
+    "static/js/2.97770c2e.chunk.js.LICENSE.txt": "/static/js/2.97770c2e.chunk.js.LICENSE.txt",
+    "static/media/001-02.png": "/static/media/001-02.11408509.png",
+    "static/media/OCSC-banner.png": "/static/media/OCSC-banner.d23a216b.png",
+    "static/media/doe.png": "/static/media/doe.33c589c3.png",
+    "static/media/logo.png": "/static/media/logo.4f02c0a4.png",
+    "static/media/ocsc-logo_7.png": "/static/media/ocsc-logo_7.e23b2c30.png",
+    "static/media/transfer-to-ocsc.png": "/static/media/transfer-to-ocsc.c5081be2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.6af16009.js",
-    "static/js/2.8186090f.chunk.js",
-    "static/css/main.279c9056.chunk.css",
-    "static/js/main.0c35b30b.chunk.js"
+    "static/js/runtime-main.360ed79e.js",
+    "static/js/2.97770c2e.chunk.js",
+    "static/css/main.4403c67d.chunk.css",
+    "static/js/main.976f940e.chunk.js"
   ]
 }
