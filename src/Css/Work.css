@@ -131,9 +131,9 @@ td {
 }
 @media screen and (min-device-width: 320px) and (max-width: 420px) {
   .logo {
-    display: none;
+    margin-left: auto;
+    align-self: center;
+    text-align-last: center;
   }
-  .logoA {
-    width: 240px;
-  }
+
 }

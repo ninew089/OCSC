@@ -25,14 +25,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ProminentAppBar() {
   const classes = useStyles()
+  function openNav() {
+    		
+    if  (window.screen.width <= 420) {
+      return true
+    } else {
+   return false
+    }
+  }
 
   return (
     <div className={classes.root}>
       <AppBar position="fixed" style={{ background: 'primary' }}>
         <Toolbar className={classes.toolbar}>
-          <img src={logo} alt="logo" className={classes.logo} width="240px" />
-
-          <div className="logo">
+          {openNav()? <img src={logo} alt="logo" className={classes.logo} width="150px" />: <img src={logo} alt="logo" className={classes.logo} width="240px" />}
+        {openNav()?<div className="logo">
+            <img
+              src={logo1}
+              alt="logos"
+              className={classes.logo}
+              width="180px"
+              marginleft="auto"
+            />
+          </div>:<div className="logo">
             <img
               src={logo1}
               alt="logos"
@@ -40,7 +55,9 @@ export default function ProminentAppBar() {
               width="350px"
               marginleft="auto"
             />
-          </div>
+          </div>}
+
+          
         </Toolbar>
       </AppBar>
     </div>
