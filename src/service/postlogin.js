@@ -1,5 +1,5 @@
 export default async function post(something, uid) {
-  const url = 'https://job-match.ocsc.go.th/api/tokens/' + uid
+  const url = `${process.env.PUBLIC_URL}` + '/api/tokens/' + uid
 
   try {
     const response = await fetch(url, {

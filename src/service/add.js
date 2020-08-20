@@ -1,5 +1,5 @@
 export default async function add(something) {
-  const url = 'https://job-match.ocsc.go.th/api/answersheets/1'
+  const url = `${process.env.PUBLIC_URL}`+'/api/answersheets/1'
 
   try {
     const response = await fetch(url, {

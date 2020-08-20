@@ -1,6 +1,6 @@
 export default async function get(start, end) {
   const url =
-    'https://job-match.ocsc.go.th/api/answersheets/' + start + '/' + end
+    `${process.env.PUBLIC_URL}` + '/api/answersheets/' + start + '/' + end
   try {
     const response = await fetch(url)
     if (response.ok) {
