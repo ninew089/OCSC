@@ -1,5 +1,5 @@
 export default async function get() {
-  const url = 'https://cubioinfo.com/aptitude-test/api/testitems/1'
+  const url = 'https://job-match.ocsc.go.th/api/testitems/1'
   try {
     const response = await fetch(url)
     if (response.ok) {
