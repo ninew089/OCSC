@@ -51,12 +51,20 @@ export default function Home() {
   const handleChange = (event) => {
     setState({ ...state, selectedValue: event.target.value })
   }
-
+  function openNav() {
+    		
+    if  (window.screen.width <= 510) {
+      return true
+    } else {
+   return false
+    }
+  }
   return (
     <div className="container" theme={theme}>
       <div className="row">
         <Navbar />
-        <Toolbar />
+  
+        {openNav()? "":<Toolbar />}
         <Toolbar />
 
         <Container maxWidth="sm" alignItems="center">
