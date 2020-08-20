@@ -27,7 +27,7 @@ export default function ProminentAppBar() {
   const classes = useStyles()
   function openNav() {
     		
-    if  (window.screen.width <= 420) {
+    if  (window.screen.width <= 510) {
       return true
     } else {
    return false
@@ -44,7 +44,7 @@ export default function ProminentAppBar() {
               src={logo1}
               alt="logos"
               className={classes.logo}
-              width="180px"
+              width="200px"
               marginleft="auto"
             />
           </div>:<div className="logo">

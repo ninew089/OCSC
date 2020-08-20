@@ -129,11 +129,4 @@ td {
   align-self: center;
   text-align-last: center;
 }
-@media screen and (min-device-width: 320px) and (max-width: 420px) {
-  .logo {
-    margin-left: auto;
-    align-self: center;
-    text-align-last: center;
-  }
 
-}
