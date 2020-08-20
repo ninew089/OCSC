@@ -10,7 +10,7 @@ export default async function add(something) {
     return null;
   }
   const uid = getCookie("uid");
-  const url = "https://cubioinfo.com/aptitude-test/api/admins/" + uid;
+  const url = "https://job-match.ocsc.go.th/api/admins/" + uid;
   const token = getCookie("token");
   try {
     console.log("json post:", JSON.stringify(something));
