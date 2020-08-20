@@ -17,6 +17,7 @@ import Checkbox from '@material-ui/core/Checkbox'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import Toolbar from '@material-ui/core/Toolbar'
+
 const useStyles = makeStyles((theme) => ({}))
 
 export default function Home() {
@@ -52,19 +53,18 @@ export default function Home() {
     setState({ ...state, selectedValue: event.target.value })
   }
   function openNav() {
-    		
-    if  (window.screen.width <= 510) {
+    if (window.screen.width <= 510) {
       return true
     } else {
-   return false
+      return false
     }
   }
   return (
     <div className="container" theme={theme}>
       <div className="row">
         <Navbar />
-  
-        {openNav()? "":<Toolbar />}
+
+        {openNav() ? '' : <Toolbar />}
         <Toolbar />
 
         <Container maxWidth="sm" alignItems="center">

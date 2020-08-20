@@ -4,11 +4,12 @@ import html2canvas from 'html2canvas'
 import DescriptionIcon from '@material-ui/icons/Description'
 
 import domtoimage from 'dom-to-image'
+import Button from '@material-ui/core/Button'
 
 import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container'
-import Button from '@material-ui/core/Button'
+
 import { useReactToPrint } from 'react-to-print'
 import PrintIcon from '@material-ui/icons/Print'
 import ContentChart from '../../Chart/ContentChart'
@@ -68,7 +69,7 @@ export default function Summary(props) {
     var xhttp = new XMLHttpRequest()
 
     xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState === 4 && this.status === 200) {
         const localAd = JSON.parse(this.responseText)
         document.cookie = 'ip=' + localAd.ip + '; '
       }
