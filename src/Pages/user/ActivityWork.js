@@ -42,7 +42,7 @@ function SnackBar({ error, handleClose, open }) {
         >
           <Alert severity="error">
             <p style={{ margin: '0px' }}>
-              ท่านยังไม่ได้ทำการเลือก ในข้อดังต่อไปนี้
+              ท่านยังไม่ได้ทำการเลือกข้อดังต่อไปนี้
             </p>
             {Text()}
           </Alert>
