@@ -140,27 +140,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     fetchUsers()
     // eslint-disable-next-line
   }, [])
-  /*
-  useEffect(() => {
-    const fetchUsers = async () => {
-      setTest1({
-        users: test1.users,
-        isFetching: true,
-        status: 200,
-      });
-      const response = await getTest();
-    
-      if (response < 501) {
-      }
 
-      setTest1({ users: response, isFetching: false, status: response });
-    };
-
-    fetchUsers();
-    // eslint-disable-next-line
-  }, []);
-  */
-  // เกี่ยวกับ stepper
   const steps = getSteps()
 
   const handleNext = (activeStep) => {
@@ -173,58 +153,75 @@ export default function HorizontalLabelPositionBelowStepper() {
     idError: undefined,
     ageError: undefined,
     genderError: undefined,
+    choice1Error: undefined,
+    choice2Error: undefined,
   })
+
   const newArray = { ...error }
   const handleStay = () => {
-    if (!validateAge(information.age)) {
+    if (activeStep === 0) {
+      if (!validateAge(information.age)) {
+      }
+      if (!validateTitle(information.title)) {
+        newArray.titleError = false
+        // setError({ titleError: false });
+      }
+      if (!validateFirstName(information.firstName)) {
+        newArray.firstError = false
+        // setError({ firstError: false });
+      }
+      if (!validateGender(information.gender)) {
+        newArray.genderError = false
+        // setError({ firstError: false });
+      }
+      if (!validateLastName(information.lastName)) {
+        newArray.lastError = false
+        // setError({ lastError: false });
+      }
+      if (!validateID(information.idCard)) {
+        newArray.idError = false
+      }
+      if (!validateAge(information.age)) {
+        newArray.ageError = false
+      }
+      if (validateTitle(information.title)) {
+        newArray.titleError = true
+      }
+      if (validateFirstName(information.firstName)) {
+        newArray.firstError = true
+      }
+
+      if (validateLastName(information.lastName)) {
+        newArray.lastError = true
+      }
+
+      if (validateID(information.idCard)) {
+        newArray.idError = true
+      }
+      if (validateAge(information.age)) {
+        newArray.ageError = true
+      }
+      if (validateGender(information.gender)) {
+        newArray.genderError = true
+      }
+    }
+    if (activeStep === 2) {
+      if (!validateChoice(values)) {
+        newArray.choice1Error = false
+      }
+      if (validateChoice(values)) {
+        newArray.choice1Error = true
+      }
+    }
+    if (activeStep === 3) {
+      if (!validateChoice1(values)) {
+        newArray.choice2Error = false
+      }
+      if (validateChoice1(values)) {
+        newArray.choice2Error = true
+      }
     }
 
-    if (!validateTitle(information.title)) {
-      newArray.titleError = false
-      // setError({ titleError: false });
-    }
-    if (!validateFirstName(information.firstName)) {
-      newArray.firstError = false
-      // setError({ firstError: false });
-    }
-    if (!validateGender(information.gender)) {
-      newArray.genderError = false
-      // setError({ firstError: false });
-    }
-    if (!validateLastName(information.lastName)) {
-      newArray.lastError = false
-      // setError({ lastError: false });
-    }
-
-    if (!validateID(information.idCard)) {
-      newArray.idError = false
-    }
-    if (!validateAge(information.age)) {
-      newArray.ageError = false
-    }
-    if (validateTitle(information.title)) {
-      newArray.titleError = true
-      // setError({ titleError: false });
-    }
-    if (validateFirstName(information.firstName)) {
-      newArray.firstError = true
-      // setError({ firstError: false });
-    }
-
-    if (validateLastName(information.lastName)) {
-      newArray.lastError = true
-      // setError({ lastError: false });
-    }
-
-    if (validateID(information.idCard)) {
-      newArray.idError = true
-    }
-    if (validateAge(information.age)) {
-      newArray.ageError = true
-    }
-    if (validateGender(information.gender)) {
-      newArray.genderError = true
-    }
     setError(newArray)
   }
 
@@ -235,6 +232,8 @@ export default function HorizontalLabelPositionBelowStepper() {
     newArray.lastError = true
     newArray.idError = true
     newArray.ageError = true
+    newArray.choice1Error = true
+    newArray.choice2Error = true
 
     setError(newArray)
   }
@@ -344,6 +343,7 @@ export default function HorizontalLabelPositionBelowStepper() {
       return true
     }
   }
+
   const validateChoice = (id) => {
     if (
       id[0].value !== '' &&
@@ -390,6 +390,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     )
       return true
   }
+
   const validateChoice1 = (id) => {
     if (
       id[41].value !== '' &&
@@ -443,6 +444,7 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
 
   // ทำ validate ในแต่ละหน้า
+
   const onSubmit = (step) => {
     if (step === 0) {
       if (validateFirstStep()) {
@@ -488,6 +490,9 @@ export default function HorizontalLabelPositionBelowStepper() {
       case 2:
         return (
           <ActivityWork
+            // checkstep={checkStep}
+            error={error.choice1Error}
+            setError={setError}
             data={values}
             data1={data1}
             setValues={setValues}
@@ -500,6 +505,8 @@ export default function HorizontalLabelPositionBelowStepper() {
       case 3:
         return (
           <ContextWorks
+            error={error.choice2Error}
+            setError={setError}
             data1={data1}
             data={values}
             setValues2={setValues}

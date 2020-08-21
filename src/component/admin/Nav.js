@@ -129,7 +129,7 @@ export default function ResetPage({ Content }) {
           >
             <MenuIcon />
           </IconButton>
-          <h5>ระบบประเมินความสนใจของบุคคลที่มีต่อหน่วยงานราชการไทย</h5>
+          <h5>ระบบประเมินความสนใจของบุคคลที่มีต่องานราชการไทย</h5>
         </Toolbar>
       </AppBar>
       <Drawer

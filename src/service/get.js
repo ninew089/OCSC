@@ -1,5 +1,5 @@
 export default async function get() {
-  const url = `${process.env.PUBLIC_URL}`+'/api/testitems/1'
+  const url = `${process.env.PUBLIC_URL}` + '/api/testitems/1'
   try {
     const response = await fetch(url)
     if (response.ok) {
