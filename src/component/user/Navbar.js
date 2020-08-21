@@ -13,9 +13,11 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     minHeight: 80,
-    alignItems: 'flex-start',
+
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
+    justify: 'space-between',
+    alignItems: 'center',
   },
   title: {
     flexGrow: 1,
@@ -35,14 +37,14 @@ export default function ProminentAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" style={{ background: 'primary' }}>
-        <Toolbar className={classes.toolbar}>
-          <Grid
-            container
-            direction="row"
-            justify="space-between"
-            alignItems="center"
-          >
+      <Grid
+        container
+        direction="row"
+        justify="space-between"
+        alignItems="center"
+      >
+        <AppBar position="fixed" style={{ background: 'primary' }}>
+          <Toolbar className={classes.toolbar}>
             {openNav() ? (
               <img
                 src={logo}
@@ -79,9 +81,9 @@ export default function ProminentAppBar() {
                 />
               </div>
             )}
-          </Grid>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
+      </Grid>
     </div>
   )
 }
