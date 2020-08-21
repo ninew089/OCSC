@@ -50,6 +50,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
+function user_location() {
+  var xhttp = new XMLHttpRequest()
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      const localAd = JSON.parse(this.responseText)
+      document.cookie = 'ip=' + localAd.ip + '; '
+    }
+  }
+
+  xhttp.open('GET', '//api.ipify.org?format=json', true)
+  xhttp.send()
+}
+
+user_location()
 
 export default function Information({
   data,
