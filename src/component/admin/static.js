@@ -289,7 +289,7 @@ export default function Dashboard() {
 
       <div id="page">
         <h3>
-          รายงานผลสถิติ ประจำวันที่ {date.startdate} ถึงวันที่ {date.enddate}
+          รายงานสถิติ ประจำวันที่ {date.startdate} ถึงวันที่ {date.enddate}
         </h3>
         {stat.status === 404 || stat.status === 500 || stat.status === 501 ? (
           <Modal status={stat.status} link={url} />
