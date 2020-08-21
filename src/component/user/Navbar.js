@@ -3,6 +3,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import logo from './logo/OCSC-banner.png'
 import logo1 from './logo/logo.png'
+import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import '../../Css/Work.css'
 const useStyles = makeStyles((theme) => ({
@@ -36,32 +37,49 @@ export default function ProminentAppBar() {
     <div className={classes.root}>
       <AppBar position="fixed" style={{ background: 'primary' }}>
         <Toolbar className={classes.toolbar}>
-          {openNav() ? (
-            <img src={logo} alt="logo" className={classes.logo} width="150px" />
-          ) : (
-            <img src={logo} alt="logo" className={classes.logo} width="240px" />
-          )}
-          {openNav() ? (
-            <div className="logo">
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+          >
+            {openNav() ? (
               <img
-                src={logo1}
-                alt="logos"
+                src={logo}
+                alt="logo"
                 className={classes.logo}
-                width="200px"
-                marginleft="auto"
+                width="150px"
               />
-            </div>
-          ) : (
-            <div className="logo">
+            ) : (
               <img
-                src={logo1}
-                alt="logos"
+                src={logo}
+                alt="logo"
                 className={classes.logo}
-                width="350px"
-                marginleft="auto"
+                width="240px"
               />
-            </div>
-          )}
+            )}
+            {openNav() ? (
+              <div className="logo">
+                <img
+                  src={logo1}
+                  alt="logos"
+                  className={classes.logo}
+                  width="200px"
+                  marginleft="auto"
+                />
+              </div>
+            ) : (
+              <div className="logo">
+                <img
+                  src={logo1}
+                  alt="logos"
+                  className={classes.logo}
+                  width="350px"
+                  marginleft="auto"
+                />
+              </div>
+            )}
+          </Grid>
         </Toolbar>
       </AppBar>
     </div>
