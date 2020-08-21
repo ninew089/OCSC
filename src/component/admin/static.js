@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
@@ -115,7 +113,7 @@ export default function Dashboard() {
   var mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
   var yyyy = today.getFullYear()
 
-  today =  yyyy + '-'+mm +'-'+ dd 
+  today = yyyy + '-' + mm + '-' + dd
 
   const [date, setDate] = useState({
     startdate: '2020-01-01',
@@ -234,140 +232,138 @@ export default function Dashboard() {
     xhr.send()
   }
   return (
-
-        <Container maxWidth="lg" className={classes.container}>
-          <InputDate date={date} setDate={setDate} onSubmit={onSubmit} />
-          {loadFont(
+    <Container maxWidth="lg" className={classes.container}>
+      <InputDate date={date} setDate={setDate} onSubmit={onSubmit} />
+      {loadFont(
         'https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap',
       )}
-          <Grid
-            container
-            xs={12}
-            direction="row"
-            justify="flex-end"
-            alignItems="center"
-          >
-            <Button
-              style={{
-                background: 'none',
-              }}
-              alignItems="left"
-              onClick={() => {
-                const input = document.getElementById('page')
-                html2canvas(input).then((canvas) => {
-                  // eslint-disable-next-line
-                  const imgData = canvas.toDataURL('image/png')
-                  const pdf = new jsPDF()
-                  const scale = 3
-                  const style = {
-                    transform: 'scale(' + scale + ')',
-                    transformOrigin: 'top left',
-                    width: input.offsetWidth + 'px',
-                    height: input.offsetHeight + 'px',
-                  }
-                  const param = {
-                    height: input.offsetHeight * scale,
-                    width: input.offsetWidth * scale,
-                    quality: 1,
-                    style,
-                  }
-                  if (pdf) {
-                    domtoimage.toPng(input, param).then((imgData) => {
-                      setTimeout(function () {
-                        pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
-                        window.open(pdf.output('bloburl'), '_blank')
-                        pdf.save('รายงานผลสถิติแบบประเมิน.pdf')
-                      }, 950)
-                    })
-                  }
+      <Grid
+        container
+        xs={12}
+        direction="row"
+        justify="flex-end"
+        alignItems="center"
+      >
+        <Button
+          style={{
+            background: 'none',
+          }}
+          alignItems="left"
+          onClick={() => {
+            const input = document.getElementById('page')
+            html2canvas(input).then((canvas) => {
+              // eslint-disable-next-line
+              const imgData = canvas.toDataURL('image/png')
+              const pdf = new jsPDF()
+              const scale = 3
+              const style = {
+                transform: 'scale(' + scale + ')',
+                transformOrigin: 'top left',
+                width: input.offsetWidth + 'px',
+                height: input.offsetHeight + 'px',
+              }
+              const param = {
+                height: input.offsetHeight * scale,
+                width: input.offsetWidth * scale,
+                quality: 1,
+                style,
+              }
+              if (pdf) {
+                domtoimage.toPng(input, param).then((imgData) => {
+                  setTimeout(function () {
+                    pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
+                    window.open(pdf.output('bloburl'), '_blank')
+                    pdf.save('รายงานผลสถิติแบบประเมิน.pdf')
+                  }, 950)
                 })
-              }}
-              className={classes.button}
-            >
-              <CloudDownloadOutlinedIcon
-                style={{ color: 'slategray', fontSize: '40px' }}
-              />
-            </Button>
+              }
+            })
+          }}
+          className={classes.button}
+        >
+          <CloudDownloadOutlinedIcon
+            style={{ color: 'slategray', fontSize: '40px' }}
+          />
+        </Button>
+      </Grid>
+
+      <div id="page">
+        <h3>
+          รายงานผลสถิติ ประจำวันที่ {date.startdate} ถึงวันที่ {date.enddate}
+        </h3>
+        {stat.status === 404 || stat.status === 500 || stat.status === 501 ? (
+          <Modal status={stat.status} link={url} />
+        ) : (
+          ''
+        )}
+        {stat.status === 999 ? (
+          <Modal
+            status={' failed to fetch'}
+            link={
+              'Something happened in setting up the request and triggered an Error'
+            }
+          />
+        ) : (
+          ''
+        )}
+        <Grid container spacing={1}>
+          {/* Chart */}
+          <Grid item xs={12}>
+            <Paper>
+              <Box p={2}>
+                {stat.status === 404 ||
+                stat.status === 500 ||
+                stat.status === 501 ? (
+                  ''
+                ) : (
+                  <GndrChart gender={statistic} />
+                )}
+              </Box>
+            </Paper>
           </Grid>
-
-          <div id="page">
-            <h3>รายงานผลสถิติแบบประเมิน ประจำวันที่ {date.startdate} ถึงวันที่ { date.enddate}</h3>
-            {stat.status === 404 ||
-            stat.status === 500 ||
-            stat.status === 501 ? (
-              <Modal status={stat.status} link={url} />
-            ) : (
-              ''
-            )}
-            {stat.status === 999 ? (
-              <Modal
-                status={' failed to fetch'}
-                link={
-                  'Something happened in setting up the request and triggered an Error'
-                }
-              />
-            ) : (
-              ''
-            )}
-            <Grid container spacing={1}>
-              {/* Chart */}
-              <Grid item xs={12}>
-                <Paper>
-                  <Box p={2}>
-                    {stat.status === 404 ||
-                    stat.status === 500 ||
-                    stat.status === 501 ? (
-                      ''
-                    ) : (
-                      <GndrChart gender={statistic} />
-                    )}
-                  </Box>
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12}>
-                <Paper>
-                  <Box p={2}>
-                    {stat.status === 404 ||
-                    stat.status === 500 ||
-                    stat.status === 501 ? (
-                      ''
-                    ) : (
-                      <AgeChart age={statistic} />
-                    )}
-                  </Box>
-                </Paper>
-              </Grid>
-              {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper>
-                  <Box p={2}>
-                    {stat.status === 404 ||
-                    stat.status === 500 ||
-                    stat.status === 501 ? (
-                      ''
-                    ) : (
-                      <EducationChart edu={statistic} />
-                    )}
-                  </Box>
-                </Paper>
-              </Grid>
-            </Grid>
-            <Box pt={4}>
-              <Paper className={fixedHeightPaper}>
-                <Box p={2} xs={12} lg={12}>
-                  {stat.status === 404 ||
-                  stat.status === 500 ||
-                  stat.status === 501 ? (
-                    ''
-                  ) : (
-                    <BrChart br={statistic} />
-                  )}
-                </Box>
-              </Paper>
+          {/* Recent Deposits */}
+          <Grid item xs={12}>
+            <Paper>
+              <Box p={2}>
+                {stat.status === 404 ||
+                stat.status === 500 ||
+                stat.status === 501 ? (
+                  ''
+                ) : (
+                  <AgeChart age={statistic} />
+                )}
+              </Box>
+            </Paper>
+          </Grid>
+          {/* Recent Orders */}
+          <Grid item xs={12}>
+            <Paper>
+              <Box p={2}>
+                {stat.status === 404 ||
+                stat.status === 500 ||
+                stat.status === 501 ? (
+                  ''
+                ) : (
+                  <EducationChart edu={statistic} />
+                )}
+              </Box>
+            </Paper>
+          </Grid>
+        </Grid>
+        <Box pt={4}>
+          <Paper className={fixedHeightPaper}>
+            <Box p={2} xs={12} lg={12}>
+              {stat.status === 404 ||
+              stat.status === 500 ||
+              stat.status === 501 ? (
+                ''
+              ) : (
+                <BrChart br={statistic} />
+              )}
             </Box>
-          </div>
-        </Container>
-
+          </Paper>
+        </Box>
+      </div>
+    </Container>
   )
 }
