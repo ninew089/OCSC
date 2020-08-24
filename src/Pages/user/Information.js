@@ -50,13 +50,25 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }))
+function spu_createCookie(name, value, hours) {
+  if (hours) {
+    var date = new Date()
+    date.setTime(date.getTime() + hours * 60 * 60 * 1000)
+    var expires = '; expires=' + date.toGMTString()
+  } else {
+    // eslint-disable-next-line
+    var expires = ''
+  }
+
+  document.cookie = name + '=' + value + expires + '; '
+}
 function user_location() {
   var xhttp = new XMLHttpRequest()
 
   xhttp.onreadystatechange = function () {
     if (this.readyState === 4 && this.status === 200) {
       const localAd = JSON.parse(this.responseText)
-      document.cookie = 'ip=' + localAd.ip + '; '
+      spu_createCookie('ip', localAd.ip, 3)
     }
   }
 
