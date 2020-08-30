@@ -994,6 +994,7 @@ export default function Summary(props) {
 
   return (
     <Container maxWidth="sm" alignItems="center">
+     
       <div>
         <Helmet>
           <title>ผลการทำแบบประเมิน</title>
@@ -1109,12 +1110,16 @@ export default function Summary(props) {
                         }
                         if (pdf) {
                           domtoimage.toPng(input, param).then((imgData) => {
-                            if (/Chrome/i.test(navigator.userAgent)) {
+                            if (
+                              /Chrome/i.test(navigator.userAgent) 
+                            ) {
                               pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
                               window
                                 .open(pdf.output('bloburl'), '_blank')
                                 .print()
-                            } else {
+                            }
+                                 
+                             else {
                               handlePrint()
                             }
                           })
@@ -1124,7 +1129,7 @@ export default function Summary(props) {
                     className={classes.button}
                   >
                     <PrintIcon style={{ color: 'ghostwhite' }} />
-                    <div className="button" style={{ color: 'ghostwhite' }}>
+                    <div className="button" id="gcpPrint" style={{ color: 'ghostwhite' }}>
                       &nbsp; พิมพ์ผลการประเมิน
                     </div>
                   </Button>
@@ -1224,7 +1229,8 @@ export default function Summary(props) {
                             }
                             if (
                               /Chrome/i.test(navigator.userAgent) &&
-                              /Google Inc/.test(navigator.vendor)
+                              /Google Inc/.test(navigator.vendor) &&
+                              window.screen.width > 700
                             ) {
                               domtoimage.toPng(input, param).then((imgData) => {
                                 setTimeout(function () {
