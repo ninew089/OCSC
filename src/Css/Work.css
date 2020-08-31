@@ -77,9 +77,6 @@ body {
     page-break-before: always;
   }
 
-  @page {
-    margin: 0.5in 0.5in 0.5in 2.6in;
-  }
 }
 
 .info {

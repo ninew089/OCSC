@@ -994,7 +994,6 @@ export default function Summary(props) {
 
   return (
     <Container maxWidth="sm" alignItems="center">
-     
       <div>
         <Helmet>
           <title>ผลการทำแบบประเมิน</title>
@@ -1081,58 +1080,83 @@ export default function Summary(props) {
                 alignItems="center"
               >
                 <Grid item>
-                  <Button
-                    style={{
-                      borderRadius: '120px',
-                      background: 'cornflowerblue',
-                      height: '40px',
-                      color: 'local',
-                    }}
-                    alignItems="left"
-                    onClick={() => {
-                      const input = document.getElementById('page')
-                      html2canvas(input).then((canvas) => {
-                        // eslint-disable-next-line
-                        const imgData = canvas.toDataURL('image/png')
-                        const pdf = new jsPDF()
-                        const scale = 3
-                        const style = {
-                          transform: 'scale(' + scale + ')',
-                          transformOrigin: 'top left',
-                          width: input.offsetWidth + 'px',
-                          height: input.offsetHeight + 'px',
-                        }
-                        const param = {
-                          height: input.offsetHeight * scale,
-                          width: input.offsetWidth * scale,
-                          quality: 1,
-                          style,
-                        }
-                        if (pdf) {
-                          domtoimage.toPng(input, param).then((imgData) => {
-                            if (
-                              /Chrome/i.test(navigator.userAgent) 
-                            ) {
-                              pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
-                              window
-                                .open(pdf.output('bloburl'), '_blank')
-                                .print()
-                            }
-                                 
-                             else {
-                              handlePrint()
-                            }
-                          })
-                        }
-                      })
-                    }}
-                    className={classes.button}
-                  >
-                    <PrintIcon style={{ color: 'ghostwhite' }} />
-                    <div className="button" id="gcpPrint" style={{ color: 'ghostwhite' }}>
-                      &nbsp; พิมพ์ผลการประเมิน
-                    </div>
-                  </Button>
+                  {/Android/i.test(navigator.userAgent) &&
+                  window.screen.width <= 700 ? (
+                    <Button
+                      style={{
+                        borderRadius: '120px',
+                        background: 'cornflowerblue',
+                        height: '40px',
+                        color: 'local',
+                      }}
+                      alignItems="left"
+                      onClick={handlePrint}
+                      className={classes.button}
+                    >
+                      <PrintIcon style={{ color: 'ghostwhite' }} />
+                      <div
+                        className="button"
+                        id="gcpPrint"
+                        style={{ color: 'ghostwhite' }}
+                      >
+                        &nbsp; พิมพ์ผลการประเมิน
+                      </div>
+                    </Button>
+                  ) : (
+                    <Button
+                      style={{
+                        borderRadius: '120px',
+                        background: 'cornflowerblue',
+                        height: '40px',
+                        color: 'local',
+                      }}
+                      alignItems="left"
+                      onClick={() => {
+                        const input = document.getElementById('page')
+                        html2canvas(input).then((canvas) => {
+                          // eslint-disable-next-line
+                          const imgData = canvas.toDataURL('image/png')
+                          const pdf = new jsPDF()
+                          const scale = 3
+                          const style = {
+                            transform: 'scale(' + scale + ')',
+                            transformOrigin: 'top left',
+                            width: input.offsetWidth + 'px',
+                            height: input.offsetHeight + 'px',
+                          }
+                          const param = {
+                            height: input.offsetHeight * scale,
+                            width: input.offsetWidth * scale,
+                            quality: 1,
+                            style,
+                          }
+                          if (pdf) {
+                            domtoimage.toPng(input, param).then((imgData) => {
+                              if (/Chrome/i.test(navigator.userAgent)) {
+                                pdf.addImage(imgData, 'PNG', 35, 10, 140, 270)
+                                window
+                                  .open(pdf.output('bloburl'), '_blank')
+                                  .print()
+                              } else {
+                                handlePrint()
+                              }
+                            })
+                          }
+                        })
+                      }}
+                      className={classes.button}
+                    >
+                      <PrintIcon style={{ color: 'ghostwhite' }} />
+                      <div
+                        className="button"
+                        id="gcpPrint"
+                        style={{ color: 'ghostwhite' }}
+                      >
+                        &nbsp; พิมพ์ผลการประเมิน
+                      </div>
+                    </Button>
+                  )}
+
                   <Button
                     style={{
                       borderRadius: '120px',
