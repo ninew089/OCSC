@@ -1081,7 +1081,7 @@ export default function Summary(props) {
               >
                 <Grid item>
                   {/Android/i.test(navigator.userAgent) &&
-                  window.screen.width <= 700 ? (
+                  window.screen.width <= 800 ? (
                     <Button
                       style={{
                         borderRadius: '120px',
@@ -1254,7 +1254,7 @@ export default function Summary(props) {
                             if (
                               /Chrome/i.test(navigator.userAgent) &&
                               /Google Inc/.test(navigator.vendor) &&
-                              window.screen.width > 700
+                              window.screen.width > 800
                             ) {
                               domtoimage.toPng(input, param).then((imgData) => {
                                 setTimeout(function () {
@@ -1275,7 +1275,7 @@ export default function Summary(props) {
                             }
                             if (
                               /Android/i.test(navigator.userAgent) &&
-                              window.screen.width <= 700
+                              window.screen.width <= 800
                             ) {
                               setTimeout(function () {
                                 let link = document.createElement('a')
