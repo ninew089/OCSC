@@ -282,7 +282,7 @@ export default function Information({
                       />
                     </RadioGroup>
                     {error.genderError === undefined ||
-                    error.firstError === true ? (
+                    error.genderError === true ? (
                       ''
                     ) : (
                       <FormHelperText
