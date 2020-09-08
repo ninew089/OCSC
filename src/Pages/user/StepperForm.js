@@ -301,7 +301,7 @@ export default function HorizontalLabelPositionBelowStepper() {
     if (id < 11) {
       return false
     }
-    if (id > 71) {
+    if (id > 70) {
       return false
     } else {
       return true
