@@ -126,4 +126,9 @@ td {
   align-self: center;
   text-align-last: center;
 }
-
+.h2head{
+ text-align: justify;
+ font-family: 'Prompt', sans-serif;
+font-size:larger;
+  font-weight: 800;
+}

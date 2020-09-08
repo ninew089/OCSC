@@ -90,7 +90,7 @@ export default function Information() {
     const result = await post({ Pwd: loginId.password }, loginId.user)
 
     if (result === 404) {
-      setStatus({ stat: 404, fetch: true, text: 'ไม่รหัสผู้ใช้' })
+      setStatus({ stat: 404, fetch: true, text: 'ไม่มีรหัสผู้ใช้' })
     }
 
     if (result === 401) {
@@ -167,7 +167,7 @@ export default function Information() {
             )}
             {stat.fetch === false ? (
               <Alert severity="error">
-                <p>รหัสผ่านผิด</p>
+                <p>รหัสผ่านไม่ถูกต้อง</p>
               </Alert>
             ) : (
               ''

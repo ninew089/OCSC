@@ -1040,13 +1040,17 @@ export default function Summary(props) {
                           {name} นามสกุล {lastName}
                         </h4>
                       </div>
+                 
                       <div className="radar">
-                        <h3>คะแนนความชอบในมิติกิจกรรมการทำงาน</h3>
+                        <div className="h2head">คะแนนความชอบ จากน้อยที่สุด ( จุดศูนย์กลาง ) ถึง มากที่สุด ( 7 )</div>
+                
+                        <h4>&nbsp; &nbsp; &nbsp;คะแนนความชอบในมิติกิจกรรมการทำงาน</h4>
                         <ActiveChart active={active} />
+                        <div></div>
                       </div>
 
                       <div className="radar">
-                        <h3>คะแนนความชอบในมิติบริบทการทำงาน</h3>
+                        <h4>&nbsp; &nbsp; &nbsp;คะแนนความชอบในมิติบริบทการทำงาน</h4>
                         <ContentChart content={content} />
                       </div>
 
