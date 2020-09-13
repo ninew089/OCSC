@@ -18,7 +18,6 @@ export default async function get(start, end) {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/problem+json; charset=utf-8',
         Authorization: 'Bearer' + ' ' + token,
       },
     })
