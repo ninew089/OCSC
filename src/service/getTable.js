@@ -1,8 +1,26 @@
 export default async function get(start, end) {
+  function getCookie(name) {
+    var nameEQ = name + '='
+    var ca = document.cookie.split(';')
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i]
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
+    }
+    return null
+  }
+  const uid = getCookie('uid')
+  const token = getCookie('token')
   const url =
     `${process.env.PUBLIC_URL}` + '/api/answersheets/' + start + '/' + end
   try {
-    const response = await fetch(url)
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/problem+json; charset=utf-8',
+        Authorization: 'Bearer' + ' ' + token,
+      },
+    })
     if (response.ok) {
       return await response
         .clone()
