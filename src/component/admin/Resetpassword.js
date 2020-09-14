@@ -50,7 +50,7 @@ export default function Reset() {
       if (result === 200) {
         setError({ ...error, error: true })
       }
-      setError({ ...error, error: true })
+
       if (result === 500) {
         setError({ ...error, error: 500 })
       }
