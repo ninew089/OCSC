@@ -9,15 +9,16 @@ export default async function get(start, end) {
     }
     return null
   }
-  const uid = getCookie('uid')
+
   const token = getCookie('token')
   const url =
     `${process.env.PUBLIC_URL}` + '/api/answersheets/' + start + '/' + end
   try {
     const response = await fetch(url, {
       method: 'GET',
+      'Content-Type': 'application/json',
       headers: {
-        Authorization: 'Bearer' + ' ' + token,
+        Authorization: 'Bearer '+ token,
       },
     })
     if (response.ok) {

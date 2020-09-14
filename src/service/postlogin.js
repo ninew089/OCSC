@@ -10,14 +10,14 @@ export default async function post(something, uid) {
     }
     return null
   }
-  const uid = getCookie('uid')
+
   const token = getCookie('token')
   try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/problem+json; charset=utf-8',
-        Authorization: 'Bearer' + ' ' + token,
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
       },
 
       body: JSON.stringify(something),

@@ -1,58 +1,64 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import "../../index.css";
-import Alert from "@material-ui/lab/Alert";
-import put from "../../service/put";
+import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import TextField from '@material-ui/core/TextField'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import { makeStyles } from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import '../../index.css'
+import Alert from '@material-ui/lab/Alert'
+import put from '../../service/put'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 export default function Reset() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   const [reset, setReset] = React.useState({
-    oldpassword: "",
-    newpassword: "",
-    comfirmpassword: "",
-  });
-  const [error, setError] = React.useState({ error: "" });
+    oldpassword: '',
+    newpassword: '',
+    comfirmpassword: '',
+  })
+  const [error, setError] = React.useState({ error: '' })
   const onSubmit = async () => {
-    console.log("re", reset);
+    console.log('re', reset)
     if (reset.newpassword !== reset.comfirmpassword) {
-      setError({ ...error, error: false });
+      setError({ ...error, error: false })
     } else {
       const result = await put({
         oldPwd: reset.oldpassword,
         newPwd: reset.newpassword,
-      });
-      setError({ ...error, error: true });
+      })
+      if (result === 200) {
+        setError({ ...error, error: true })
+      }
+      setError({ ...error, error: true })
+      if (result === 500) {
+        setError({ ...error, error: 500 })
+      }
       if (result === 401) {
-        setError({ ...error, error: 401 });
+        setError({ ...error, error: 401 })
       }
     }
-  };
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -65,17 +71,22 @@ export default function Reset() {
         {error.error === false ? (
           <Alert severity="error">รหัสผ่านไม่เหมือนกัน</Alert>
         ) : (
-          ""
+          ''
         )}
         {error.error === 401 ? (
           <Alert severity="error">รหัสผ่านเดิมผิด</Alert>
         ) : (
-          ""
+          ''
+        )}
+        {error.error === 500 ? (
+          <Alert severity="error">เกิดข้อผิดพลาด</Alert>
+        ) : (
+          ''
         )}
         {error.error === true ? (
           <Alert severity="success">เปลี่ยนรหัสผ่านสำเร็จ</Alert>
         ) : (
-          ""
+          ''
         )}
         <form className={classes.form} noValidate>
           <TextField
@@ -131,5 +142,5 @@ export default function Reset() {
         </Button>
       </div>
     </Container>
-  );
+  )
 }
