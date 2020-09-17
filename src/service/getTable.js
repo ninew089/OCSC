@@ -16,10 +16,10 @@ export default async function get(start, end) {
   try {
     const response = await fetch(url, {
       method: 'GET',
-    
+
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer '+ token,
+        Authorization: `Bearer ${token}`,
       },
     })
     if (response.ok) {

@@ -18,8 +18,7 @@ export default async function add(something) {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        // eslint-disable-next-line
-        Authorization: 'Bearer '+ token,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(something),
     })

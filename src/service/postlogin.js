@@ -1,24 +1,8 @@
 export default async function post(something, uid) {
   const url = `${process.env.PUBLIC_URL}` + '/api/tokens/' + uid
-  function getCookie(name) {
-    var nameEQ = name + '='
-    var ca = document.cookie.split(';')
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i]
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
-    }
-    return null
-  }
-
-  const token = getCookie('token')
   try {
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + token,
-      },
 
       body: JSON.stringify(something),
     })
