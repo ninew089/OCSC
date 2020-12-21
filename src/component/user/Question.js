@@ -47,14 +47,12 @@ export default function RadioButtons(props) {
         <FormControl component="fieldset">
           <Grid
             container
-            xs={12}
             justifyContent="center"
             alignContent="center"
             style={{ padding: " 10px" }}
           >
             <Grid
               container
-              xs={12}
               justifyContent="center"
               alignContent="center"
             >
@@ -81,7 +79,6 @@ export default function RadioButtons(props) {
 
             <Grid
               container
-              xs={12}
               justifyContent="center"
               alignContent="center"
             >
