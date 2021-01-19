@@ -251,6 +251,9 @@ export default function Information({
                     <FormLabel
                       component="legend"
                       className={classes.formGender}
+                      error={
+                        !(error.genderError === undefined ||
+                          error.genderError === true)}
                     >
                       เพศ
                     </FormLabel>
