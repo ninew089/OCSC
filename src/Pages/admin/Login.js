@@ -1,117 +1,129 @@
-import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
-import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid'
-import BackgroundHeader from '../../pic/001-02.png'
-import { makeStyles } from '@material-ui/core/styles'
-import '../../index.css'
-import logo from '../../pic/ocsc-logo_7.png'
-import { Redirect } from 'react-router'
-import post from '../../service/postlogin'
-import Alert from '@material-ui/lab/Alert'
+import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
+import BackgroundHeader from "../../pic/001-02.png";
+import { makeStyles } from "@material-ui/core/styles";
+import "../../index.css";
+import logo from "../../pic/ocsc-logo_7.png";
+import { Redirect } from "react-router";
+import axios from "axios";
+import post from "../../service/postlogin";
+import Alert from "@material-ui/lab/Alert";
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    height: "100vh",
   },
   image: {
-    backgroundImage: 'url(' + BackgroundHeader + ')',
-    backgroundRepeat: 'no-repeat',
+    backgroundImage: "url(" + BackgroundHeader + ")",
+    backgroundRepeat: "no-repeat",
 
     backgroundColor:
-      theme.palette.type === 'light'
+      theme.palette.type === "light"
         ? theme.palette.grey[50]
         : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   paper: {
     margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}))
+}));
 
 export default function Information() {
   // post id ,user name >> get response success get token >>save token in http header, fail return false
-  const classes = useStyles()
+  const classes = useStyles();
   //const [information, setInformation] = useState(Data);
   const [loginId, setLogin] = useState({
-    user: '',
-    password: '',
+    user: "",
+    password: "",
     authen: false,
-  })
+  });
   function getCookie(name) {
-    var nameEQ = name + '='
-    var ca = document.cookie.split(';')
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(";");
     for (var i = 0; i < ca.length; i++) {
-      var c = ca[i]
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length)
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length)
+      var c = ca[i];
+      while (c.charAt(0) === " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
     }
-    return null
+    return null;
   }
   function spu_createCookie(name, value, hours) {
     if (hours) {
-      var date = new Date()
-      date.setTime(date.getTime() + hours * 60 * 60 * 1000)
-      var expires = '; expires=' + date.toGMTString()
+      var date = new Date();
+      date.setTime(date.getTime() + hours * 60 * 60 * 1000);
+      var expires = "; expires=" + date.toGMTString();
     } else {
       // eslint-disable-next-line
-      var expires = ''
+      var expires = "";
     }
 
-    document.cookie = name + '=' + value + expires + '; '
+    document.cookie = name + "=" + value + expires + "; ";
   }
 
   const loginbotton = {
-    width: '-webkit-fill-available',
-    height: '40px',
-    color: 'white',
+    width: "-webkit-fill-available",
+    height: "40px",
+    color: "white",
 
-    background: 'royalblue',
-    border: 'hidden',
-    borderradius: '4px',
-  }
-  const [stat, setStatus] = React.useState('')
+    background: "royalblue",
+    border: "hidden",
+    borderradius: "4px",
+  };
+  const [stat, setStatus] = React.useState("");
   const onLogin = async () => {
-    const result = await post({ Pwd: loginId.password }, loginId.user)
+    await axios
+      .post(`https://job-match.ocsc.go.th/api/tokens/${loginId.user}`, {
+        Pwd: loginId.password,
+      })
+      .then(({ data }) => {
+        console.log(data);
+        spu_createCookie("token", data.token, 3);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    const result = await post({ Pwd: loginId.password }, loginId.user);
 
     if (result === 404) {
-      setStatus({ stat: 404, fetch: true, text: 'ไม่มีรหัสผู้ใช้' })
+      setStatus({ stat: 404, fetch: true, text: "ไม่มีรหัสผู้ใช้" });
     }
 
     if (result === 401) {
       setStatus({
         stat: 401,
         fetch: false,
-        text: 'รหัสผ่านไม่ถูกต้อง',
-      })
+        text: "รหัสผ่านไม่ถูกต้อง",
+      });
     }
-    if (result === 'NotAuthorized') {
+    if (result === "NotAuthorized") {
       setStatus({
         stat: 401,
         fetch: false,
-        text: 'NotAuthorized',
-      })
+        text: "NotAuthorized",
+      });
     }
     if (result === 500) {
-      setStatus({ stat: 500, fetch: false, text: 'ความผิดพลาดของโปรแกรม' })
+      setStatus({ stat: 500, fetch: false, text: "ความผิดพลาดของโปรแกรม" });
     }
     if (result === 999) {
-      setStatus({ stat: 999, fetch: false, text: 'เกิดความผิดพลาด' })
+      setStatus({ stat: 999, fetch: false, text: "เกิดความผิดพลาด" });
     }
     if (
       (result !== 404) |
@@ -120,17 +132,17 @@ export default function Information() {
       (result !== 999)
     ) {
       if (result.token !== null || result.token !== undefined) {
-        spu_createCookie('uid', result.uid, 3)
+        spu_createCookie("uid", result.uid, 3);
 
-        if (getCookie('uid') === loginId.user) {
-          spu_createCookie('token', result.token, 3)
+        if (getCookie("uid") === loginId.user) {
+          spu_createCookie("token", result.token, 3);
 
-          setStatus({ stat: 200, fetch: true, text: 'ok' })
+          setStatus({ stat: 200, fetch: true, text: "ok" });
         } else {
         }
       }
     }
-  }
+  };
 
   return (
     <Grid
@@ -163,14 +175,14 @@ export default function Information() {
                 <p>{stat.text}</p>
               </Alert>
             ) : (
-              ''
+              ""
             )}
             {stat.fetch === false ? (
               <Alert severity="error">
                 <p>รหัสผ่านไม่ถูกต้อง</p>
               </Alert>
             ) : (
-              ''
+              ""
             )}
 
             <TextField
@@ -202,15 +214,15 @@ export default function Information() {
           <button onClick={onLogin} style={loginbotton}>
             <p>ลงชื่อเข้าใช้ระบบ</p>
           </button>
-          {getCookie('token') !== null ? (
+          {getCookie("token") !== null ? (
             <div>
               <Redirect push to="/admin/dash" />
             </div>
           ) : (
-            ''
+            ""
           )}
         </div>
       </Grid>
     </Grid>
-  )
+  );
 }
