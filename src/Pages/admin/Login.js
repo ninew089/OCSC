@@ -88,17 +88,6 @@ export default function Information() {
   };
   const [stat, setStatus] = React.useState("");
   const onLogin = async () => {
-    await axios
-      .post(`https://job-match.ocsc.go.th/api/tokens/${loginId.user}`, {
-        Pwd: loginId.password,
-      })
-      .then(({ data }) => {
-        console.log(data);
-        spu_createCookie("token", data.token, 3);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     const result = await post({ Pwd: loginId.password }, loginId.user);
 
     if (result === 404) {
